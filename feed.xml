@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.1">Jekyll</generator><link href="blog.zer0day.net/feed.xml" rel="self" type="application/atom+xml" /><link href="blog.zer0day.net/" rel="alternate" type="text/html" /><updated>2017-03-03T06:38:11-08:00</updated><id>blog.zer0day.net/</id><title type="html">Another tech blog…</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">Installing Snort</title><link href="blog.zer0day.net/2017/03/02/installing-snort.html" rel="alternate" type="text/html" title="Installing Snort" /><published>2017-03-02T20:35:00-08:00</published><updated>2017-03-02T20:35:00-08:00</updated><id>blog.zer0day.net/2017/03/02/installing-snort</id><content type="html" xml:base="blog.zer0day.net/2017/03/02/installing-snort.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Bro IDS Server Setup</title><link href="blog.zer0day.net/2017/03/02/bro-ids-server-setup.html" rel="alternate" type="text/html" title="Bro IDS Server Setup" /><published>2017-03-02T18:30:00-08:00</published><updated>2017-03-02T18:30:00-08:00</updated><id>blog.zer0day.net/2017/03/02/bro-ids-server-setup</id><content type="html" xml:base="blog.zer0day.net/2017/03/02/bro-ids-server-setup.html">&lt;h2 id=&quot;what-is-bro-used-for&quot;&gt;What is Bro used for?&lt;/h2&gt;
+
+&lt;p&gt;The Bro network monitoring platform has one of the dumbest names, but most powerful set of plugin capabilities.&lt;/p&gt;
+
+&lt;h3 id=&quot;installation-guide&quot;&gt;Installation Guide&lt;/h3&gt;
+
+&lt;h5 id=&quot;1-to-install-the-required-dependencies-you-can-use&quot;&gt;1. To install the required dependencies, you can use:&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;RPM/RedHat-based Linux&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo yum install cmake make gcc gcc-c++ flex bison libpcap-devel openssl-devel python-devel swig zlib-devel&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DEB/Debian-based Linux&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2-optional-dependencies&quot;&gt;2. Optional Dependencies&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bro can make use of some optional libraries and tools if they are found at build time:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;C++ Actor Framework (CAF) version 0.14 (&lt;a href=&quot;http://actor-framework.org&quot;&gt;http://actor-framework.org&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;LibGeoIP (for geolocating IP addresses)&lt;/li&gt;
+      &lt;li&gt;sendmail (enables Bro and BroControl to send mail)&lt;/li&gt;
+      &lt;li&gt;curl (used by a Bro script that implements active HTTP)&lt;/li&gt;
+      &lt;li&gt;gperftools (tcmalloc is used to improve memory and CPU usage)&lt;/li&gt;
+      &lt;li&gt;jemalloc (&lt;a href=&quot;http://www.canonware.com/jemalloc/&quot;&gt;http://www.canonware.com/jemalloc/&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;PF_RING (Linux only, see Cluster Configuration)&lt;/li&gt;
+      &lt;li&gt;ipsumdump (for trace-summary; &lt;a href=&quot;http://www.cs.ucla.edu/~kohler/ipsumdump&quot;&gt;http://www.cs.ucla.edu/~kohler/ipsumdump&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;3-installing-bro&quot;&gt;3. Installing Bro&lt;/h5&gt;</content><author><name></name></author><summary type="html">What is Bro used for?</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="blog.zer0day.net/jekyll/update/2017/03/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-02T18:28:40-08:00</published><updated>2017-03-02T18:28:40-08:00</updated><id>blog.zer0day.net/jekyll/update/2017/03/02/welcome-to-jekyll</id><content type="html" xml:base="blog.zer0day.net/jekyll/update/2017/03/02/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
