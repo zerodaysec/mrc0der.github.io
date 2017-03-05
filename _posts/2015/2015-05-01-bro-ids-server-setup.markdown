@@ -2,7 +2,7 @@
 layout: post
 title: "How To - Bro IDS Server Setup"
 date: '2015-05-01 1:30'
-tags: bro
+tags: bro ids security
 ---
 
 ## What is Bro used for?
