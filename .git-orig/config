@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com-mrc0der:mrc0der/mrc0der.github.io.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "gh-pages"]
+	remote = origin
+	merge = refs/heads/gh-pages
+
+[remote "src"]
+	url = git@github.com-mrc0der:mrc0der/mrc0der.github.io-private.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
