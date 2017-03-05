@@ -3,8 +3,8 @@
 	<channel>
 		<title>Zer0day Blog</title>
 		<description>Software Developer / Security Analyst</description>
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://mrc0der.github.io</link>
+		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>ProTip: Using Multiple Github Accounts & Keys</title>
@@ -80,8 +80,8 @@ $ git push
 &lt;/div&gt;
 </description>
 				<pubDate>Fri, 03 Mar 2017 07:03:00 -0800</pubDate>
-				<link>http://localhost:4000/2017/03/protip-using-multiple-github-accounts-keys</link>
-				<guid isPermaLink="true">http://localhost:4000/2017/03/protip-using-multiple-github-accounts-keys</guid>
+				<link>http://mrc0der.github.io/2017/03/protip-using-multiple-github-accounts-keys</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-using-multiple-github-accounts-keys</guid>
 			</item>
 		
 			<item>
@@ -102,8 +102,30 @@ $ git push
 &lt;/ul&gt;
 </description>
 				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
-				<link>http://localhost:4000/2017/03/tools-amazon-aws</link>
-				<guid isPermaLink="true">http://localhost:4000/2017/03/tools-amazon-aws</guid>
+				<link>http://mrc0der.github.io/2017/03/tools-amazon-aws</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/tools-amazon-aws</guid>
+			</item>
+		
+			<item>
+				<title>How To - Using Test Kitchen for your Chef Cookbooks</title>
+				<description>&lt;p&gt;Setup the kitchen env (Provision machine &amp;amp; run cookbooks)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen converge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Verifies an instance after it has been converged&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen verify
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Run both at once (this destroys the end image if test are successful)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Fri, 03 Feb 2017 07:11:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</guid>
 			</item>
 		
 			<item>
@@ -118,8 +140,8 @@ $ git push
 &lt;/ul&gt;
 </description>
 				<pubDate>Thu, 05 Jan 2017 09:29:00 -0800</pubDate>
-				<link>http://localhost:4000/2017/01/jekyll-post-troubleshooting</link>
-				<guid isPermaLink="true">http://localhost:4000/2017/01/jekyll-post-troubleshooting</guid>
+				<link>http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting</guid>
 			</item>
 		
 			<item>
@@ -207,8 +229,8 @@ $ git push
 
 </description>
 				<pubDate>Sat, 01 Oct 2016 16:25:06 +0000</pubDate>
-				<link>http://localhost:4000/2016/10/code-syntax-highlighting</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/10/code-syntax-highlighting</guid>
+				<link>http://mrc0der.github.io/2016/10/code-syntax-highlighting</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2016/10/code-syntax-highlighting</guid>
 			</item>
 		
 			<item>
@@ -221,8 +243,8 @@ $ git push
 &lt;/div&gt;
 </description>
 				<pubDate>Thu, 02 Jun 2016 20:35:00 -0700</pubDate>
-				<link>http://localhost:4000/2016/06/installing-snort</link>
-				<guid isPermaLink="true">http://localhost:4000/2016/06/installing-snort</guid>
+				<link>http://mrc0der.github.io/2016/06/installing-snort</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2016/06/installing-snort</guid>
 			</item>
 		
 			<item>
@@ -292,8 +314,8 @@ $ git push
 &lt;/ul&gt;
 </description>
 				<pubDate>Fri, 01 May 2015 01:30:00 -0700</pubDate>
-				<link>http://localhost:4000/2015/05/bro-ids-server-setup</link>
-				<guid isPermaLink="true">http://localhost:4000/2015/05/bro-ids-server-setup</guid>
+				<link>http://mrc0der.github.io/2015/05/bro-ids-server-setup</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2015/05/bro-ids-server-setup</guid>
 			</item>
 		
 			<item>
@@ -303,8 +325,8 @@ $ git push
 &lt;p&gt;- mrc0der&lt;/p&gt;
 </description>
 				<pubDate>Tue, 02 Dec 2014 18:28:40 -0800</pubDate>
-				<link>http://localhost:4000/2014/12/welcome-to-zer0day-net</link>
-				<guid isPermaLink="true">http://localhost:4000/2014/12/welcome-to-zer0day-net</guid>
+				<link>http://mrc0der.github.io/2014/12/welcome-to-zer0day-net</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2014/12/welcome-to-zer0day-net</guid>
 			</item>
 		
 	</channel>
