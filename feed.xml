@@ -1,21 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-03T07:15:27-08:00</updated><id>http://localhost:4000/</id><title type="html">Another tech blog…</title><subtitle>What is in a good description these dys?
-</subtitle><entry><title type="html">How To - Using Test Kitchen for your Chef Cookbooks</title><link href="http://localhost:4000/2017/03/03/how-to-using-test-kitchen-for-your-chef-cookbooks.html" rel="alternate" type="text/html" title="How To - Using Test Kitchen for your Chef Cookbooks" /><published>2017-03-03T07:11:00-08:00</published><updated>2017-03-03T07:11:00-08:00</updated><id>http://localhost:4000/2017/03/03/how-to-using-test-kitchen-for-your-chef-cookbooks</id><content type="html" xml:base="http://localhost:4000/2017/03/03/how-to-using-test-kitchen-for-your-chef-cookbooks.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tools: Amazon AWS</title><link href="http://localhost:4000/2017/03/03/tools-amazon-aws.html" rel="alternate" type="text/html" title="Tools: Amazon AWS" /><published>2017-03-03T07:05:00-08:00</published><updated>2017-03-03T07:05:00-08:00</updated><id>http://localhost:4000/2017/03/03/tools-amazon-aws</id><content type="html" xml:base="http://localhost:4000/2017/03/03/tools-amazon-aws.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">PrpTip: Using Multiple Github Accounts &amp;amp; Keys</title><link href="http://localhost:4000/2017/03/03/prptip-using-multiple-github-accounts-keys.html" rel="alternate" type="text/html" title="PrpTip: Using Multiple Github Accounts &amp; Keys" /><published>2017-03-03T07:03:00-08:00</published><updated>2017-03-03T07:03:00-08:00</updated><id>http://localhost:4000/2017/03/03/prptip-using-multiple-github-accounts-keys</id><content type="html" xml:base="http://localhost:4000/2017/03/03/prptip-using-multiple-github-accounts-keys.html">&lt;p&gt;Multiple SSH Keys settings for different github account&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Zer0day Blog</title>
+		<description>Software Developer / Security Analyst</description>
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>ProTip: Using Multiple Github Accounts & Keys</title>
+				<description>&lt;p&gt;Multiple SSH Keys settings for different github account&lt;/p&gt;
 
 &lt;p&gt;create different public key&lt;/p&gt;
 
 &lt;p&gt;create different ssh key according the article Mac Set-Up Git&lt;/p&gt;
-
-&lt;p&gt;$ ssh-keygen -t rsa -C “your_email@youremail.com”
-Please refer to github ssh issues for common problems.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-keygen -t rsa -C &quot;user1@gmail.com&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Please refer to github ssh issues for common problems.&lt;/p&gt;
 
 &lt;p&gt;for example, 2 keys created at:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.ssh/id_rsa_activehacker
-~/.ssh/id_rsa_jexchan
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.ssh/id_rsa_user1
+~/.ssh/id_rsa_user2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;then, add these two keys as following&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-add ~/.ssh/id_rsa_activehacker
-$ ssh-add ~/.ssh/id_rsa_jexchan
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-add ~/.ssh/id_rsa_user1
+$ ssh-add ~/.ssh/id_rsa_user2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;you can delete all cached keys before&lt;/p&gt;
@@ -33,39 +43,191 @@ $ subl -a config
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Then added&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#activehacker account
-Host github.com-activehacker
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#user1 account
+Host github.com-user1
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_activehacker
+    IdentityFile ~/.ssh/id_rsa_user1
 
-#jexchan account
-Host github.com-jexchan
+#user2 account
+Host github.com-user2
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_jexchan
+    IdentityFile ~/.ssh/id_rsa_user2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;Clone you repo and modify your Git config&lt;/p&gt;
+&lt;p&gt;Clone your repo and modify your Git config&lt;/p&gt;
 
-&lt;p&gt;clone your repo git clone git@github.com:activehacker/gfs.git gfs_jexchan&lt;/p&gt;
+&lt;p&gt;clone your repo &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone git@github.com:user1/gfs.git gfs_user2&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;cd gfs_jexchan and modify git config&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config user.name &quot;jexchan&quot;
-$ git config user.email &quot;jexchan@gmail.com&quot;
-
-$ git config user.name &quot;activehacker&quot;
-$ git config user.email &quot;jexlab@gmail.com&quot;
+&lt;p&gt;cd gfs_user2 and modify git config&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config user.name &quot;user2&quot;
+$ git config user.email &quot;user2@gmail.com&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;or you can have global git config $ git config –global user.name “jexchan” $ git config –global user.email “jexchan@gmail.com”&lt;/p&gt;
+
+&lt;p&gt;or you can set the global git config&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config --global user.name &quot;user2&quot;
+$ git config --global user.email &quot;user2@gmail.com&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;then use normal flow to push your code&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add .
 $ git commit -m &quot;your comments&quot;
 $ git push
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Multiple SSH Keys settings for different github account</summary></entry><entry><title type="html">How To - Bro IDS Server Setup</title><link href="http://localhost:4000/2015/05/01/bro-ids-server-setup.html" rel="alternate" type="text/html" title="How To - Bro IDS Server Setup" /><published>2015-05-01T01:30:00-07:00</published><updated>2015-05-01T01:30:00-07:00</updated><id>http://localhost:4000/2015/05/01/bro-ids-server-setup</id><content type="html" xml:base="http://localhost:4000/2015/05/01/bro-ids-server-setup.html">&lt;h2 id=&quot;what-is-bro-used-for&quot;&gt;What is Bro used for?&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Fri, 03 Mar 2017 07:03:00 -0800</pubDate>
+				<link>http://localhost:4000/2017/03/protip-using-multiple-github-accounts-keys</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/03/protip-using-multiple-github-accounts-keys</guid>
+			</item>
+		
+			<item>
+				<title>Tools: Amazon AWS</title>
+				<description>&lt;h1 id=&quot;aws-cloudformation-tools&quot;&gt;AWS CloudFormation Tools&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Stacker&lt;/li&gt;
+  &lt;li&gt;Troposphere&lt;/li&gt;
+  &lt;li&gt;Terraform&lt;/li&gt;
+  &lt;li&gt;awacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;image-creation&quot;&gt;Image Creation&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Packer&lt;/li&gt;
+  &lt;li&gt;VMware Fusion&lt;/li&gt;
+  &lt;li&gt;Virturalbox&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
+				<link>http://localhost:4000/2017/03/tools-amazon-aws</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/03/tools-amazon-aws</guid>
+			</item>
+		
+			<item>
+				<title>Jekyll Post Troubleshooting</title>
+				<description>&lt;h2 id=&quot;why-wont-my-new-post-show-up&quot;&gt;Why wont my new post show up???&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The post is not placed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory.&lt;/li&gt;
+  &lt;li&gt;The post has incorrect title. Posts should be named &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The post’s date is in the future. You can make the post visible by setting future: true in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; (documentation)&lt;/li&gt;
+  &lt;li&gt;The post has &lt;code class=&quot;highlighter-rouge&quot;&gt;published: false&lt;/code&gt; in its front matter. Set it to true.&lt;/li&gt;
+  &lt;li&gt;The title contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; character. Replace it with &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;#58&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Thu, 05 Jan 2017 09:29:00 -0800</pubDate>
+				<link>http://localhost:4000/2017/01/jekyll-post-troubleshooting</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/01/jekyll-post-troubleshooting</guid>
+			</item>
+		
+			<item>
+				<title>Code snippets</title>
+				<description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;For code syntax coloration I’m using Darcula theme from Intellij IDEA, which I’ve found in this post &lt;a href=&quot;http://smasue.github.io/pygments-darcula/&quot;&gt;Darcula theme for Pygments&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;XML with line numbers (linenos flag), &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;highlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;linenos&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;rss&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:atom=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2005/Atom&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;channel&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;{{ site.name }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;{{ site.description }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;{{site.baseurl | prepend:site.url}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;atom:link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{site.baseurl | prepend:site.url}}/feed.xml&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;self&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/rss+xml&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    {% for post in site.posts limit:10 %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;item&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;{{ post.content | xml_escape }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;pubDate&amp;gt;&lt;/span&gt;{{ post.date | date: &quot;%a, %d %b %Y %H:%M:%S %z&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pubDate&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;{{post.url | prepend:site.baseurl | prepend:site.url}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;guid&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;isPermaLink=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{post.url | prepend:site.baseurl | prepend:site.url}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/guid&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/item&amp;gt;&lt;/span&gt;
+    {% endfor %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/channel&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/rss&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;JSON:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;employees&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;firstName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;lastName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;firstName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Anna&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;lastName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Smith&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;firstName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Peter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;lastName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Jones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;SQL:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cm_content_nodes&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alf_node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alf_qname&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alf_namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ns&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ns_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type_qname_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://www.alfresco.org/model/content/1.0'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;qn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'content'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Java:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getToken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UnsupportedEncodingException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCookies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Cookie&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Alfresco-CSRFToken&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)){&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;URLDecoder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getValue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+				<pubDate>Sat, 01 Oct 2016 16:25:06 +0000</pubDate>
+				<link>http://localhost:4000/2016/10/code-syntax-highlighting</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/10/code-syntax-highlighting</guid>
+			</item>
+		
+			<item>
+				<title>How To - Installing Snort on Ubuntu 16.04 LTS</title>
+				<description>&lt;p&gt;Prepare the server for remote access and&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# apt-get update
+# apt-get install openssh-server
+# reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Thu, 02 Jun 2016 20:35:00 -0700</pubDate>
+				<link>http://localhost:4000/2016/06/installing-snort</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/06/installing-snort</guid>
+			</item>
+		
+			<item>
+				<title>How To - Bro IDS Server Setup</title>
+				<description>&lt;h2 id=&quot;what-is-bro-used-for&quot;&gt;What is Bro used for?&lt;/h2&gt;
 
 &lt;p&gt;The Bro network monitoring platform has one of the dumbest names, but most powerful set of plugin capabilities.&lt;/p&gt;
 
@@ -127,6 +289,23 @@ $ git push
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=/usr/local/bro/bin:$PATH&lt;/code&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">What is Bro used for?</summary></entry><entry><title type="html">How To - Installing Snort</title><link href="http://localhost:4000/2015/01/02/installing-snort.html" rel="alternate" type="text/html" title="How To - Installing Snort" /><published>2015-01-02T20:35:00-08:00</published><updated>2015-01-02T20:35:00-08:00</updated><id>http://localhost:4000/2015/01/02/installing-snort</id><content type="html" xml:base="http://localhost:4000/2015/01/02/installing-snort.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Welcome to Zer0day.net!</title><link href="http://localhost:4000/news/update/2014/12/02/how-to-zer0day-net.html" rel="alternate" type="text/html" title="Welcome to Zer0day.net!" /><published>2014-12-02T18:28:40-08:00</published><updated>2014-12-02T18:28:40-08:00</updated><id>http://localhost:4000/news/update/2014/12/02/how-to-zer0day-net</id><content type="html" xml:base="http://localhost:4000/news/update/2014/12/02/how-to-zer0day-net.html">&lt;p&gt;Welcome to the new blog! All old content is in the process of being migrated. So be sure to check back soon for old and new content.&lt;/p&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Fri, 01 May 2015 01:30:00 -0700</pubDate>
+				<link>http://localhost:4000/2015/05/bro-ids-server-setup</link>
+				<guid isPermaLink="true">http://localhost:4000/2015/05/bro-ids-server-setup</guid>
+			</item>
+		
+			<item>
+				<title>Welcome to Zer0day.net!</title>
+				<description>&lt;p&gt;Welcome to the new blog! All old content is in the process of being migrated. So be sure to check back soon for old and new content.&lt;/p&gt;
 
-&lt;p&gt;- mrc0der&lt;/p&gt;</content><author><name></name></author><summary type="html">Welcome to the new blog! All old content is in the process of being migrated. So be sure to check back soon for old and new content.</summary></entry></feed>
+&lt;p&gt;- mrc0der&lt;/p&gt;
+</description>
+				<pubDate>Tue, 02 Dec 2014 18:28:40 -0800</pubDate>
+				<link>http://localhost:4000/2014/12/welcome-to-zer0day-net</link>
+				<guid isPermaLink="true">http://localhost:4000/2014/12/welcome-to-zer0day-net</guid>
+			</item>
+		
+	</channel>
+</rss>
