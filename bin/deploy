@@ -6,7 +6,7 @@
 set -e
 
 git add .
-git commit -m"Blog master auto update due to push on $(date %Y%m%d)"
+git commit -m"Blog master auto update due to push on $(date +%Y%m%d)"
 git push origin master
 
 pwd
