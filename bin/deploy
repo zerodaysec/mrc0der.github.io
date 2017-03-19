@@ -5,17 +5,17 @@
 # Exit if any subcommand fails.
 set -e
 
-echo "Building"
+find _site -maxdepth 1  ! -name '.git' ! -name '.gitignore'
+#-exec rm -rf {} \;
 
+echo "Building"
 jekyll build
 
-echo "Started deploying"
 
-# Checkout go to _site and push to github
-pwd
+echo "Started deploying"
+# go to _site and push to github
 cd _site/
 pwd
-
 #git remote -v
 git status
 git add .
