@@ -7,7 +7,7 @@ set -e
 pwd
 cd _site/
 
-find . -maxdepth 1  ! -name '.git' ! -name '.gitignore' #-exec rm -rf {} \;
+find . -maxdepth 1  ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
 
 cd ..
 echo "Building"
