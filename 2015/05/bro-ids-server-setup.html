@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog</title>
+  <title>Zer0day Blog | How To - Bro IDS Server Setup </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -75,256 +75,100 @@
     </div>
   </nav>
 
-
     <div class="wrapper">
       <div class="content">
         <div class="container container-center">
           <div class="row">
             <div class="col-md-8">
-              <div class="well">
-                
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2017/03/protip-using-multiple-github-accounts-keys">
-      ProTip: Using Multiple Github Accounts & Keys
-    </a>
-  </h2>
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2015/05/bro-ids-server-setup">How To - Bro IDS Server Setup</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>01 May 2015</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/bro">bro</a></li>
+                      
+                        <li><a href="/tag/ids">ids</a></li>
+                      
+                        <li><a href="/tag/security">security</a></li>
+                      
+                    </ul>
+                  </div>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h2 id="what-is-bro-used-for">What is Bro used for?</h2>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2017-03-03'>03 Mar 2017</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/github">github</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/protip">protip</a></li>
-    
-  </ul>
-</div>
+<p>The Bro network monitoring platform has one of the dumbest names, but most powerful set of plugin capabilities.</p>
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2017/03/tools-amazon-aws">
-      Tools: Amazon AWS
-    </a>
-  </h2>
+<h2 id="who-uses-bro">Who uses Bro?</h2>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2017-03-01'>01 Mar 2017</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/aws">aws</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/tools">tools</a></li>
-    
-  </ul>
-</div>
+<p>I mean it cant really be used with a name like ‘Bro,’ right?</p>
+<ul>
+  <li>CERN</li>
+  <li>Major Universities</li>
+</ul>
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks">
-      How To - Using Test Kitchen for your Chef Cookbooks
-    </a>
-  </h2>
+<h3 id="installation-guide">Installation Guide</h3>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2017-02-03'>03 Feb 2017</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/chef">chef</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/howto">howto</a></li>
-    
-  </ul>
-</div>
+<h5 id="1-to-install-the-required-dependencies-you-can-use">1. To install the required dependencies, you can use:</h5>
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting">
-      Jekyll Post Troubleshooting
-    </a>
-  </h2>
+<ul>
+  <li>
+    <p>RPM/RedHat-based Linux</p>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2017-01-05'>05 Jan 2017</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/jekyll">jekyll</a></li>
-    
-  </ul>
-</div>
+    <ul>
+      <li><code class="highlighter-rouge">sudo yum install cmake make gcc gcc-c++ flex bison libpcap-devel openssl-devel python-devel swig zlib-devel</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>DEB/Debian-based Linux</p>
 
-  <div class="post-descr">
-    <p>
-      Simple Jekyll Troubleshooting Steps
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2016/10/code-syntax-highlighting">
-      Code snippets
-    </a>
-  </h2>
+    <ul>
+      <li><code class="highlighter-rouge">sudo apt-get install cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev</code></li>
+    </ul>
+  </li>
+</ul>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2016-10-01'>01 Oct 2016</time>
-  </div>
-  <ul>
-    
-  </ul>
-</div>
+<h5 id="2-optional-dependencies">2. Optional Dependencies</h5>
 
-  <div class="post-descr">
-    <p>
-      Sample post showing how code samples would look like
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2016/06/installing-snort">
-      How To - Installing Snort on Ubuntu 16.04 LTS
-    </a>
-  </h2>
+<ul>
+  <li>
+    <p>Bro can make use of some optional libraries and tools if they are found at build time:</p>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2016-06-02'>02 Jun 2016</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/snort">snort</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/ids">ids</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/security">security</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/ubuntu16.04">ubuntu16.04</a></li>
-    
-  </ul>
-</div>
+    <ul>
+      <li>C++ Actor Framework (CAF) version 0.14 (<a href="http://actor-framework.org">http://actor-framework.org</a>)</li>
+      <li>LibGeoIP (for geolocating IP addresses)</li>
+      <li>sendmail (enables Bro and BroControl to send mail)</li>
+      <li>curl (used by a Bro script that implements active HTTP)</li>
+      <li>gperftools (tcmalloc is used to improve memory and CPU usage)</li>
+      <li>jemalloc (<a href="http://www.canonware.com/jemalloc/">http://www.canonware.com/jemalloc/</a>)</li>
+      <li>PF_RING (Linux only, see Cluster Configuration)</li>
+      <li>ipsumdump (for trace-summary; <a href="http://www.cs.ucla.edu/~kohler/ipsumdump">http://www.cs.ucla.edu/~kohler/ipsumdump</a>)</li>
+    </ul>
+  </li>
+</ul>
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2016/05/bro-ids-server-setup">
-      How To - Bro IDS Server Setup
-    </a>
-  </h2>
+<h5 id="3-installing-bro">3. Installing Bro</h5>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2016-05-01'>01 May 2016</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/bro">bro</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/ids">ids</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/security">security</a></li>
-    
-  </ul>
-</div>
+<h5 id="4-post-install">4. Post Install</h5>
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2015/05/bro-ids-server-setup">
-      How To - Bro IDS Server Setup
-    </a>
-  </h2>
+<ul>
+  <li>Configuring the runtime env
+    <ul>
+      <li><code class="highlighter-rouge">export PATH=/usr/local/bro/bin:$PATH</code></li>
+    </ul>
+  </li>
+</ul>
 
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2015-05-01'>01 May 2015</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/bro">bro</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/ids">ids</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/security">security</a></li>
-    
-  </ul>
-</div>
+                    
 
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-  <h2 class="post-title">
-    <a href="http://mrc0der.github.io/2014/12/welcome-to-zer0day-net">
-      Welcome to Zer0day.net!
-    </a>
-  </h2>
-
-  <div class="post-meta">
-  <div class="post-time">
-    <i class="fa fa-calendar"></i>
-    <time datetime='2014-12-02'>02 Dec 2014</time>
-  </div>
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/update">update</a></li>
-    
-  </ul>
-</div>
-
-  <div class="post-descr">
-    <p>
-      
-    </p>
-  </div>
-  
-
-
-<div class="post-footer">
-  <div class="column-full">
-    <h3><a href="http://mrc0der.github.io/archive.html">Blog archive</a></h3>
-  </div>
-</div>
-
+                  </div>
+                  
+                </div>
               </div>
             </div>
             <div class="col-md-4 hidden-xs">
@@ -408,6 +252,8 @@
             </div>
           </div>
         </div>
+        
+
       </div>
           <footer class="footer-distributed">
       <div class="container">
