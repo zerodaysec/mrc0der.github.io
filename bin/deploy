@@ -3,7 +3,7 @@
 # Run this script to deploy the app to Github Pages.
 
 # Exit if any subcommand fails.
-set -e
+#set -e
 
 git add .
 git commit -m"Blog master auto update due to push on $(date +%Y%m%d)"
