@@ -17,6 +17,7 @@ find . -maxdepth 1  ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
 cd ..
 echo "Building"
 jekyll build
+echo "www.zer0day.net" > _site/CNAME
 
 
 echo "Started deploying"
