@@ -26,7 +26,7 @@ pwd
 #git remote -v
 git status
 git add .
-git commit -m"Blog published $(date +Y+m+d)"
+git commit -m"Blog published $(date +%Y%m%d)"
 git push origin master
 
 echo "Deployed Successfully!"
