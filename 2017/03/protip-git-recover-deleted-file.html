@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog | Jekyll Post Troubleshooting </title>
+  <title>Zer0day Blog | ProTip - Git Recover Deleted File </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -83,75 +83,63 @@
             <div class="col-md-8">
               <div class="article">
                 <div class="well">
-                  <h1><a href="/2017/01/jekyll-post-troubleshooting">Jekyll Post Troubleshooting</a></h1>
+                  <h1><a href="/2017/03/protip-git-recover-deleted-file">ProTip - Git Recover Deleted File</a></h1>
                   <div class="post-meta">
                     <div class="post-time">
                       <i class="fa fa-calendar"></i>
-                      <time>05 Jan 2017</time>
+                      <time>20 Mar 2017</time>
                     </div>
                     <ul>
                       
-                        <li><a href="/tag/jekyll">jekyll</a></li>
+                        <li><a href="/tag/git">git</a></li>
                       
                     </ul>
                   </div>
                   <div class="post-content">
                     <div id="toc" class="toc"></div>
-                    <h2 id="why-wont-my-new-post-show-up">Why wont my new post show up???</h2>
-<ul>
-  <li>The post is not placed in the <code class="highlighter-rouge">_posts</code> directory.</li>
-  <li>The post has incorrect title. Posts should be named <code class="highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></li>
-  <li>The post’s date is in the future. You can make the post visible by setting future: true in <code class="highlighter-rouge">_config.yml</code> (documentation)</li>
-  <li>The post has <code class="highlighter-rouge">published: false</code> in its front matter. Set it to true.</li>
-  <li>The title contains a <code class="highlighter-rouge">:</code> character. Replace it with <code class="highlighter-rouge">&amp;#58</code>.</li>
-</ul>
+                    <h1 id="git-checkout-deleted-file">Git Checkout Deleted File</h1>
 
-                    
+<h2 id="look-in-git-log-for-deleted-file">Look in git log for deleted file</h2>
 
-<div class="share-bar">
-  <ul class="share-buttons">
-    
+<p>This will require you scrolling through the git history. If you need you can use a GUI tool. But GUIs are for the weak. cli = power</p>
 
-    
-    <li class="share-twitter">
-      <a href="https://twitter.com/intent/tweet?url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&text=Jekyll Post Troubleshooting" target="_blank" title="Tweet">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-twitter fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
+<div class="highlighter-rouge"><pre class="highlight"><code>commit 254b43ad0ceb039a80737919a5e14504b917bbed
+Author: username &lt;user@emailfqdn.tld&gt;
+Date:   Mon Jan 23 23:34:32 2017 -0800
 
-    
+    site cookbook: style updates; drop legacy site recipe
 
-    
-    <li class="share-linkedin">
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&title=Jekyll Post Troubleshooting&summary=Simple Jekyll Troubleshooting Steps&source=" target="_blank" title="Share on LinkedIn">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-linkedin fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-    
-
-    
-    <li class="share-envelope">
-      <a href="mailto:?&subject=Jekyll Post Troubleshooting&body=Simple Jekyll Troubleshooting Steps http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting" target="_blank" title="Email">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-envelope-o fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-  </ul>
+ delete mode 100644 cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
 </div>
 
+<h2 id="note-the-commit-id">Note the commit id</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>commit 254b43ad0ceb039a80737919a5e14504b917bbed
+</code></pre>
+</div>
+
+<h2 id="create-a-new-temp-branch">Create a new temp branch</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b pulling_restored_file
+</code></pre>
+</div>
+
+<h2 id="checkout-that-branch-and-file">Checkout that branch and file</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout 254b43ad0ceb039a80737919a5e14504b917bbed^ -- cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
+</div>
+
+<h3 id="viola">Viola!</h3>
+
+<p>You should now have the restored file at:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
+</div>
+
+                    
 
                   </div>
                   

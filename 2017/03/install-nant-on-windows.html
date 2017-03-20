@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog | Jekyll Post Troubleshooting </title>
+  <title>Zer0day Blog | Install NAnt on Windows </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -83,75 +83,53 @@
             <div class="col-md-8">
               <div class="article">
                 <div class="well">
-                  <h1><a href="/2017/01/jekyll-post-troubleshooting">Jekyll Post Troubleshooting</a></h1>
+                  <h1><a href="/2017/03/install-nant-on-windows">Install NAnt on Windows</a></h1>
                   <div class="post-meta">
                     <div class="post-time">
                       <i class="fa fa-calendar"></i>
-                      <time>05 Jan 2017</time>
+                      <time>20 Mar 2017</time>
                     </div>
                     <ul>
-                      
-                        <li><a href="/tag/jekyll">jekyll</a></li>
                       
                     </ul>
                   </div>
                   <div class="post-content">
                     <div id="toc" class="toc"></div>
-                    <h2 id="why-wont-my-new-post-show-up">Why wont my new post show up???</h2>
-<ul>
-  <li>The post is not placed in the <code class="highlighter-rouge">_posts</code> directory.</li>
-  <li>The post has incorrect title. Posts should be named <code class="highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></li>
-  <li>The post’s date is in the future. You can make the post visible by setting future: true in <code class="highlighter-rouge">_config.yml</code> (documentation)</li>
-  <li>The post has <code class="highlighter-rouge">published: false</code> in its front matter. Set it to true.</li>
-  <li>The title contains a <code class="highlighter-rouge">:</code> character. Replace it with <code class="highlighter-rouge">&amp;#58</code>.</li>
-</ul>
+                    <h1 id="installing-nant-on-windows-server-2012">Installing NAnt on Windows Server 2012</h1>
 
-                    
+<h2 id="url-for-download">URL for Download</h2>
+<p>https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download</p>
 
-<div class="share-bar">
-  <ul class="share-buttons">
-    
-
-    
-    <li class="share-twitter">
-      <a href="https://twitter.com/intent/tweet?url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&text=Jekyll Post Troubleshooting" target="_blank" title="Tweet">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-twitter fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-    
-
-    
-    <li class="share-linkedin">
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&title=Jekyll Post Troubleshooting&summary=Simple Jekyll Troubleshooting Steps&source=" target="_blank" title="Share on LinkedIn">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-linkedin fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-    
-
-    
-    <li class="share-envelope">
-      <a href="mailto:?&subject=Jekyll Post Troubleshooting&body=Simple Jekyll Troubleshooting Steps http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting" target="_blank" title="Email">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-envelope-o fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-  </ul>
+<h3 id="powershell-example">Powershell Example</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;ts=1484610299&amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+</code></pre>
 </div>
 
+<h3 id="unzip-to-cprogram-files-x86">Unzip to C:\Program Files (x86)\</h3>
+
+<h3 id="unblock-files">Unblock Files</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+</code></pre>
+</div>
+
+<h1 id="unzip-function">Unzip function</h1>
+<div class="highlighter-rouge"><pre class="highlight"><code>function Expand-ZIPFile($file, $destination)
+{
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($file)
+foreach($item in $zip.items())
+{
+$shell.Namespace($destination).copyhere($item)
+}
+}
+</code></pre>
+</div>
+<h3 id="unzip-example">Unzip Example</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>Expand-ZIPFile –File "C:\nant.0.92.zip" –Destination "C:\Program Files (x86)\NAnt"
+</code></pre>
+</div>
+
+                    
 
                   </div>
                   

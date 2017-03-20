@@ -7,6 +7,113 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Wp CLI Examples</title>
+				<description>&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wp plugin install rest-api --activate
+
+wp plugin update --all --allow-root
+
+wp plugin install --allow-root https://github.com/afragen/github-updater/archive/6.2.2.zip --activate
+
+wp plugin install --allow-root https://github.com/wp-sync-db/wp-sync-db/archive/1.5.zip --activate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:33:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/wp-cli-examples</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/wp-cli-examples</guid>
+			</item>
+		
+			<item>
+				<title>Install NAnt on Windows</title>
+				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
+
+&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
+&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
+
+&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts=1484610299&amp;amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
+
+&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Expand-ZIPFile($file, $destination)
+{
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($file)
+foreach($item in $zip.items())
+{
+$shell.Namespace($destination).copyhere($item)
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &quot;C:\nant.0.92.zip&quot; –Destination &quot;C:\Program Files (x86)\NAnt&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:32:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/install-nant-on-windows</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/install-nant-on-windows</guid>
+			</item>
+		
+			<item>
+				<title>ProTip - Git Recover Deleted File</title>
+				<description>&lt;h1 id=&quot;git-checkout-deleted-file&quot;&gt;Git Checkout Deleted File&lt;/h1&gt;
+
+&lt;h2 id=&quot;look-in-git-log-for-deleted-file&quot;&gt;Look in git log for deleted file&lt;/h2&gt;
+
+&lt;p&gt;This will require you scrolling through the git history. If you need you can use a GUI tool. But GUIs are for the weak. cli = power&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 254b43ad0ceb039a80737919a5e14504b917bbed
+Author: username &amp;lt;user@emailfqdn.tld&amp;gt;
+Date:   Mon Jan 23 23:34:32 2017 -0800
+
+    site cookbook: style updates; drop legacy site recipe
+
+ delete mode 100644 cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;note-the-commit-id&quot;&gt;Note the commit id&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 254b43ad0ceb039a80737919a5e14504b917bbed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;create-a-new-temp-branch&quot;&gt;Create a new temp branch&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout -b pulling_restored_file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;checkout-that-branch-and-file&quot;&gt;Checkout that branch and file&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout 254b43ad0ceb039a80737919a5e14504b917bbed^ -- cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;viola&quot;&gt;Viola!&lt;/h3&gt;
+
+&lt;p&gt;You should now have the restored file at:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:29:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</guid>
+			</item>
+		
+			<item>
 				<title>Python Libraries & Scripts</title>
 				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
 
@@ -260,88 +367,6 @@ $ git push
 				<pubDate>Thu, 02 Jun 2016 20:35:00 -0700</pubDate>
 				<link>http://mrc0der.github.io/2016/06/installing-snort</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2016/06/installing-snort</guid>
-			</item>
-		
-			<item>
-				<title>How To - Bro IDS Server Setup</title>
-				<description>&lt;h2 id=&quot;what-is-bro-used-for&quot;&gt;What is Bro used for?&lt;/h2&gt;
-
-&lt;p&gt;The Bro network monitoring platform has one of the dumbest names, but most powerful set of plugin capabilities.&lt;/p&gt;
-
-&lt;h2 id=&quot;who-uses-bro&quot;&gt;Who uses Bro?&lt;/h2&gt;
-
-&lt;p&gt;I mean it cant really be used with a name like ‘Bro,’ right?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;CERN&lt;/li&gt;
-  &lt;li&gt;Major Universities&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;installation-guide&quot;&gt;Installation Guide&lt;/h3&gt;
-
-&lt;h5 id=&quot;1-to-install-the-required-dependencies-you-can-use&quot;&gt;1. To install the required dependencies, you can use:&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;RPM/RedHat-based Linux&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo yum install cmake make gcc gcc-c++ flex bison libpcap-devel openssl-devel python-devel swig zlib-devel&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DEB/Debian-based Linux&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;2-optional-dependencies&quot;&gt;2. Optional Dependencies&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Bro can make use of some optional libraries and tools if they are found at build time:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;C++ Actor Framework (CAF) version 0.14 (&lt;a href=&quot;http://actor-framework.org&quot;&gt;http://actor-framework.org&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;LibGeoIP (for geolocating IP addresses)&lt;/li&gt;
-      &lt;li&gt;sendmail (enables Bro and BroControl to send mail)&lt;/li&gt;
-      &lt;li&gt;curl (used by a Bro script that implements active HTTP)&lt;/li&gt;
-      &lt;li&gt;gperftools (tcmalloc is used to improve memory and CPU usage)&lt;/li&gt;
-      &lt;li&gt;jemalloc (&lt;a href=&quot;http://www.canonware.com/jemalloc/&quot;&gt;http://www.canonware.com/jemalloc/&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;PF_RING (Linux only, see Cluster Configuration)&lt;/li&gt;
-      &lt;li&gt;ipsumdump (for trace-summary; &lt;a href=&quot;http://www.cs.ucla.edu/~kohler/ipsumdump&quot;&gt;http://www.cs.ucla.edu/~kohler/ipsumdump&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;3-installing-bro&quot;&gt;3. Installing Bro&lt;/h5&gt;
-
-&lt;h5 id=&quot;4-post-install&quot;&gt;4. Post Install&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configuring the runtime env
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=/usr/local/bro/bin:$PATH&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Sun, 01 May 2016 01:30:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2016/05/bro-ids-server-setup</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2016/05/bro-ids-server-setup</guid>
-			</item>
-		
-			<item>
-				<title>Welcome to Zer0day.net!</title>
-				<description>&lt;p&gt;Welcome to the new blog! All old content is in the process of being migrated. So be sure to check back soon for old and new content.&lt;/p&gt;
-
-&lt;p&gt;- mrc0der&lt;/p&gt;
-</description>
-				<pubDate>Tue, 02 Dec 2014 18:28:40 -0800</pubDate>
-				<link>http://mrc0der.github.io/2014/12/welcome-to-zer0day-net</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2014/12/welcome-to-zer0day-net</guid>
 			</item>
 		
 	</channel>

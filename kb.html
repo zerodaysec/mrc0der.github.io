@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog | Jekyll Post Troubleshooting </title>
+  <title>Zer0day Blog | KB </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -76,86 +76,61 @@
     </div>
   </nav>
 
+
     <div class="wrapper">
       <div class="content">
         <div class="container container-center">
           <div class="row">
             <div class="col-md-8">
-              <div class="article">
-                <div class="well">
-                  <h1><a href="/2017/01/jekyll-post-troubleshooting">Jekyll Post Troubleshooting</a></h1>
-                  <div class="post-meta">
-                    <div class="post-time">
-                      <i class="fa fa-calendar"></i>
-                      <time>05 Jan 2017</time>
-                    </div>
-                    <ul>
-                      
-                        <li><a href="/tag/jekyll">jekyll</a></li>
-                      
-                    </ul>
-                  </div>
-                  <div class="post-content">
-                    <div id="toc" class="toc"></div>
-                    <h2 id="why-wont-my-new-post-show-up">Why wont my new post show up???</h2>
+              <div class="well">
+                <h1 id="knowledge-base">Knowledge Base</h1>
+<p>Here is my KB. Nothing fancy or cool. Just snippets for what im working on. Or have worked on.</p>
+
+<h2 id="tutorials">Tutorials</h2>
+
+<h3 id="chef">Chef</h3>
+
 <ul>
-  <li>The post is not placed in the <code class="highlighter-rouge">_posts</code> directory.</li>
-  <li>The post has incorrect title. Posts should be named <code class="highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></li>
-  <li>The post’s date is in the future. You can make the post visible by setting future: true in <code class="highlighter-rouge">_config.yml</code> (documentation)</li>
-  <li>The post has <code class="highlighter-rouge">published: false</code> in its front matter. Set it to true.</li>
-  <li>The title contains a <code class="highlighter-rouge">:</code> character. Replace it with <code class="highlighter-rouge">&amp;#58</code>.</li>
+  <li>https://learn.chef.io/tutorials/local-development/ubuntu/virtualbox/get-set-up/</li>
 </ul>
 
-                    
+<h2 id="cli-tricks">CLI Tricks</h2>
 
-<div class="share-bar">
-  <ul class="share-buttons">
-    
+<h3 id="jq---json-query"><code class="highlighter-rouge">jq</code> - json query</h3>
 
-    
-    <li class="share-twitter">
-      <a href="https://twitter.com/intent/tweet?url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&text=Jekyll Post Troubleshooting" target="_blank" title="Tweet">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-twitter fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-    
-
-    
-    <li class="share-linkedin">
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting&title=Jekyll Post Troubleshooting&summary=Simple Jekyll Troubleshooting Steps&source=" target="_blank" title="Share on LinkedIn">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-linkedin fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-    
-
-    
-    <li class="share-envelope">
-      <a href="mailto:?&subject=Jekyll Post Troubleshooting&body=Simple Jekyll Troubleshooting Steps http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting" target="_blank" title="Email">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x"></i>
-          <i class="fa fa-envelope-o fa-stack-1x"></i>
-        </span>
-      </a>
-    </li>
-    
-
-  </ul>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>jq <span class="s1">'.ReplicationGroups[].NodeGroups[]'</span>
+<span class="gp">$&gt; </span>jq <span class="s1">'.items[].id'</span>
+<span class="gp">$&gt; </span>aws --region<span class="o">=</span>us-west-2 elasticache describe-replication-groups | jq <span class="s1">'.ReplicationGroups[].NodeGroups[] | select(.Status=="Available")'</span>
+</code></pre>
 </div>
 
+<h3 id="nmap-examples">Nmap Examples</h3>
 
-                  </div>
-                  
-                </div>
+<h4 id="dns-brute-force">DNS Brute Force</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script dns-brute.nse taraget.fqdn
+</code></pre>
+</div>
+
+<h4 id="find-hosts-on-ip">Find Hosts on IP</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script hostmap-bkf.nse taraget.fqdn
+</code></pre>
+</div>
+
+<h4 id="traceroute-geolocation">Traceroute Geolocation</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo nmap --traceroute --script traceroute-geolocation.nse -p 80 taraget.fqdn
+</code></pre>
+</div>
+
+<h4 id="http-enumeration">HTTP Enumeration</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script http-enum.nse taraget.fqdn
+</code></pre>
+</div>
+
+<h4 id="http-enumeration--path">HTTP Enumeration / path</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script http-enum.nse http-enum.basepath='pub/' taraget.fqdn
+</code></pre>
+</div>
+
               </div>
             </div>
             <div class="col-md-4 hidden-xs">
@@ -251,8 +226,6 @@
             </div>
           </div>
         </div>
-        
-
       </div>
           <footer class="footer-distributed">
       <div class="container">
