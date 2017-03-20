@@ -7,6 +7,21 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Python Libraries & Scripts</title>
+				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
+
+&lt;h2 id=&quot;libraries&quot;&gt;Libraries&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/execsql&quot;&gt;Execsql&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/cloudtools/awacs&quot;&gt;Awacs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 13:04:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/python-libraries-scripts</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/python-libraries-scripts</guid>
+			</item>
+		
+			<item>
 				<title>ProTip: Using Multiple Github Accounts & Keys</title>
 				<description>&lt;p&gt;Multiple SSH Keys settings for different github account&lt;/p&gt;
 
