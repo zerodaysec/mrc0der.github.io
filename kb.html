@@ -107,29 +107,35 @@
 <h3 id="nmap-examples">Nmap Examples</h3>
 
 <h4 id="dns-brute-force">DNS Brute Force</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script dns-brute.nse taraget.fqdn
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">nmap -p 80 --script dns-brute.nse taraget.fqdn</code></p>
 
 <h4 id="find-hosts-on-ip">Find Hosts on IP</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script hostmap-bkf.nse taraget.fqdn
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">nmap -p 80 --script hostmap-bkf.nse taraget.fqdn</code></p>
 
 <h4 id="traceroute-geolocation">Traceroute Geolocation</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo nmap --traceroute --script traceroute-geolocation.nse -p 80 taraget.fqdn
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">sudo nmap --traceroute --script traceroute-geolocation.nse -p 80 taraget.fqdn</code></p>
 
 <h4 id="http-enumeration">HTTP Enumeration</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script http-enum.nse taraget.fqdn
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">nmap -p 80 --script http-enum.nse taraget.fqdn</code></p>
 
 <h4 id="http-enumeration--path">HTTP Enumeration / path</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>nmap -p 80 --script http-enum.nse http-enum.basepath='pub/' taraget.fqdn
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">nmap -p 80 --script http-enum.nse http-enum.basepath='pub/' taraget.fqdn</code></p>
+
+<h1 id="chef-resources">Chef Resources</h1>
+
+<h2 id="chef-training">Chef Training</h2>
+<ul>
+  <li>https://linuxacademy.com/notecards/deck/view/user_id/77204/deck_name/Certified%20Chef%20Developer%20Basic%20Chef%20Fluency%20Badge</li>
+  <li>https://linuxacademy.com/notecards/deck/view/user_id/1/deck_name/Chef%20Basic%20Terminology</li>
+</ul>
+
+<h1 id="articles-to-read">Articles to Read</h1>
+<ul>
+  <li>https://segment.com/blog/rebuilding-our-infrastructure/</li>
+  <li>https://www.fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github</li>
+  <li>https://thepracticalsysadmin.com/setting-up-a-github-webhook-in-jenkins/</li>
+  <li>https://www.blazemeter.com/blog/how-start-working-github-plugin-jenkins</li>
+</ul>
 
               </div>
             </div>
@@ -138,6 +144,8 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2017/03/protip-docker-downlow">ProTip - Docker Downlow</a></li>
+    
     <li><a href="/2017/03/wordpress-plugins-to-use">Wordpress Plugins to Use</a></li>
     
     <li><a href="/2017/03/wp-cli-examples">Wp CLI Examples</a></li>
@@ -145,8 +153,6 @@
     <li><a href="/2017/03/install-nant-on-windows">Install NAnt on Windows</a></li>
     
     <li><a href="/2017/03/protip-git-recover-deleted-file">ProTip - Git Recover Deleted File</a></li>
-    
-    <li><a href="/2017/03/python-libraries-scripts">Python Libraries & Scripts</a></li>
     
   </ul>
 </div>
@@ -173,6 +179,10 @@
         <span>chef</span></a></li>
     
     <li>
+      <a href="/tag/docker" data-toggle="tooltip" data-placement="right" title="1">
+        <span>docker</span></a></li>
+    
+    <li>
       <a href="/tag/git" data-toggle="tooltip" data-placement="right" title="1">
         <span>git</span></a></li>
     
@@ -195,6 +205,10 @@
     <li>
       <a href="/tag/jekyll" data-toggle="tooltip" data-placement="right" title="1">
         <span>jekyll</span></a></li>
+    
+    <li>
+      <a href="/tag/microservices" data-toggle="tooltip" data-placement="right" title="1">
+        <span>microservices</span></a></li>
     
     <li>
       <a href="/tag/monitoring" data-toggle="tooltip" data-placement="right" title="1">

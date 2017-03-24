@@ -7,6 +7,18 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>ProTip - Docker Downlow</title>
+				<description>&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.ctl.io/developers/blog/post/optimizing-docker-images/&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Wed, 22 Mar 2017 16:32:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-docker-downlow</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-docker-downlow</guid>
+			</item>
+		
+			<item>
 				<title>Wordpress Plugins to Use</title>
 				<description>&lt;p&gt;Normally I would start one of these things off with STOP! DONT USE WORDPRESS!!!&lt;br /&gt;
 The fact is, lots do, and lots will continue to do so. Here I will maintain my&lt;br /&gt;
@@ -147,7 +159,7 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 			</item>
 		
 			<item>
-				<title>ProTip: Using Multiple Github Accounts & Keys</title>
+				<title>ProTip: Using Multiple Github Accounts &amp; Keys</title>
 				<description>&lt;p&gt;Multiple SSH Keys settings for different github account&lt;/p&gt;
 
 &lt;p&gt;create different public key&lt;/p&gt;
@@ -269,7 +281,7 @@ $ git push
 			</item>
 		
 			<item>
-				<title>Opensource Monitoring & Graphing Tools</title>
+				<title>Opensource Monitoring &amp; Graphing Tools</title>
 				<description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
 
 &lt;h2 id=&quot;dashboards&quot;&gt;Dashboards&lt;/h2&gt;
@@ -281,27 +293,16 @@ $ git push
 &lt;h2 id=&quot;blogs--articles&quot;&gt;Blogs &amp;amp; Articles&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;https://community.rackspace.com/products/f/25/t/6800&lt;/li&gt;
+  &lt;li&gt;http://jansipke.nl/monitoring-hosts-with-collectd-influxdb-and-grafana/&lt;/li&gt;
+  &lt;li&gt;https://www.digitalocean.com/community/tutorials/how-to-configure-collectd-to-gather-system-metrics-for-graphite-on-ubuntu-14-04&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;httpsgrafanacomblog2016030325-graphite-grafana-and-statsd-gotchas&quot;&gt;https://grafana.com/blog/2016/03/03/25-graphite-grafana-and-statsd-gotchas/&lt;/h2&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 </description>
 				<pubDate>Sun, 22 Jan 2017 11:59:00 -0800</pubDate>
 				<link>http://mrc0der.github.io/2017/01/opensource-monitoring-graphing-tools</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/01/opensource-monitoring-graphing-tools</guid>
-			</item>
-		
-			<item>
-				<title>Jekyll Post Troubleshooting</title>
-				<description>&lt;h2 id=&quot;why-wont-my-new-post-show-up&quot;&gt;Why wont my new post show up???&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;The post is not placed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory.&lt;/li&gt;
-  &lt;li&gt;The post has incorrect title. Posts should be named &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;The post’s date is in the future. You can make the post visible by setting future: true in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; (documentation)&lt;/li&gt;
-  &lt;li&gt;The post has &lt;code class=&quot;highlighter-rouge&quot;&gt;published: false&lt;/code&gt; in its front matter. Set it to true.&lt;/li&gt;
-  &lt;li&gt;The title contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; character. Replace it with &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;#58&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Thu, 05 Jan 2017 09:29:00 -0800</pubDate>
-				<link>http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/01/jekyll-post-troubleshooting</guid>
 			</item>
 		
 	</channel>
