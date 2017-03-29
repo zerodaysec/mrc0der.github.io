@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# Run this script to deploy the app to Github Pages.
+
+# Exit if any subcommand fails.
+set -e
+
+git add .
+git commit -m"Blog master auto update due to push on $(date +%Y%m%d)"
+git push origin master
+
+pwd
+cd _site/
+
+find . -maxdepth 1  ! -name '.git' ! -name '.gitignore' -exec rm -rf {} \;
+
+cd ..
+echo "Building"
+/usr/local/bin/jekyll build
+echo "www.zer0day.net" > _site/CNAME
+
+
+echo "Started deploying"
+# go to _site and push to github
+cd _site/
+pwd
+#git remote -v
+git status
+git add .
+git commit -m"Blog published $(date +%Y%m%d)"
+git push origin master
+
+echo "Deployed Successfully!"
+
+exit 0

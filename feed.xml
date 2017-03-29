@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Zer0day Blog</title>
+		<description>Software Developer / Security Analyst</description>
+		<link>http://mrc0der.github.io</link>
+		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>ProTip - AWS ElasticSearch 5.1 Deployment</title>
+				<description>&lt;p&gt;When deploying Elasticsearch 5.1 via Cloudformation there are 2 important things to know. Both are Advanced Options for Elasticsearch that are listed as &lt;strong&gt;optional&lt;/strong&gt;, but your CFN stack will FAIL to deploy if they are not set.&lt;/p&gt;
+
+&lt;h6 id=&quot;symptoms&quot;&gt;Symptoms:&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;In AWS console it will show stack as &lt;em&gt;CREATE_IN_PROGRESS&lt;/em&gt; for ~1hr&lt;/li&gt;
+  &lt;li&gt;Stack will rollback with ‘Cluster did not stabilize’&lt;/li&gt;
+  &lt;li&gt;Same stack with v2.3 will deploy fine…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Im sure by the time someone else finds this post it will be fixed, but if not, see below.&lt;/p&gt;
+
+&lt;h5 id=&quot;json-example--&quot;&gt;JSON Example -&lt;/h5&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ElasticsearchDomain&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Properties&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...YOUR&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;CONFIG...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;AdvancedOptions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;indices.fielddata.cache.size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;rest.action.multi.allow_explicit_index&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;yaml-example--&quot;&gt;Yaml Example -&lt;/h5&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;ElasticsearchDomain&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;AWS::Elasticsearch::Domain&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;...YOUR CONFIG...&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;AdvancedOptions&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;indices.fielddata.cache.size&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;rest.action.multi.allow_explicit_index&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;true'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Wed, 29 Mar 2017 13:17:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-aws-elasticsearch-5-1-deployment</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-aws-elasticsearch-5-1-deployment</guid>
+			</item>
+		
+			<item>
+				<title>ProTip - Docker Downlow</title>
+				<description>&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://www.ctl.io/developers/blog/post/optimizing-docker-images/&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Wed, 22 Mar 2017 16:32:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-docker-downlow</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-docker-downlow</guid>
+			</item>
+		
+			<item>
+				<title>Wordpress Plugins to Use</title>
+				<description>&lt;p&gt;Normally I would start one of these things off with STOP! DONT USE WORDPRESS!!!&lt;br /&gt;
+The fact is, lots do, and lots will continue to do so. Here I will maintain my&lt;br /&gt;
+list of essential, must haves, and cool to have plugins, mods, or overall config&lt;br /&gt;
+tips. As with anything you find here, I guarantee NOTHING. With all the NSA / DeepSpace9&lt;br /&gt;
+0days everything is back-doored / has holes.&lt;/p&gt;
+
+&lt;h2 id=&quot;plugins&quot;&gt;Plugins&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/wp-sync-db/wp-sync-db&quot;&gt;WP Synd DB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Tue, 21 Mar 2017 14:45:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/wordpress-plugins-to-use</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/wordpress-plugins-to-use</guid>
+			</item>
+		
+			<item>
+				<title>Wp CLI Examples</title>
+				<description>&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wp plugin install rest-api --activate
+
+wp plugin update --all --allow-root
+
+wp plugin install --allow-root https://github.com/afragen/github-updater/archive/6.2.2.zip --activate
+
+wp plugin install --allow-root https://github.com/wp-sync-db/wp-sync-db/archive/1.5.zip --activate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:33:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/wp-cli-examples</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/wp-cli-examples</guid>
+			</item>
+		
+			<item>
+				<title>Install NAnt on Windows</title>
+				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
+
+&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
+&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
+
+&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts=1484610299&amp;amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
+
+&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Expand-ZIPFile($file, $destination)
+{
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($file)
+foreach($item in $zip.items())
+{
+$shell.Namespace($destination).copyhere($item)
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &quot;C:\nant.0.92.zip&quot; –Destination &quot;C:\Program Files (x86)\NAnt&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:32:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/install-nant-on-windows</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/install-nant-on-windows</guid>
+			</item>
+		
+			<item>
+				<title>ProTip - Git Recover Deleted File</title>
+				<description>&lt;h1 id=&quot;git-checkout-deleted-file&quot;&gt;Git Checkout Deleted File&lt;/h1&gt;
+
+&lt;h2 id=&quot;look-in-git-log-for-deleted-file&quot;&gt;Look in git log for deleted file&lt;/h2&gt;
+
+&lt;p&gt;This will require you scrolling through the git history. If you need you can use a GUI tool. But GUIs are for the weak. cli = power&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 254b43ad0ceb039a80737919a5e14504b917bbed
+Author: username &amp;lt;user@emailfqdn.tld&amp;gt;
+Date:   Mon Jan 23 23:34:32 2017 -0800
+
+    site cookbook: style updates; drop legacy site recipe
+
+ delete mode 100644 cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;note-the-commit-id&quot;&gt;Note the commit id&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;commit 254b43ad0ceb039a80737919a5e14504b917bbed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;create-a-new-temp-branch&quot;&gt;Create a new temp branch&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout -b pulling_restored_file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;checkout-that-branch-and-file&quot;&gt;Checkout that branch and file&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout 254b43ad0ceb039a80737919a5e14504b917bbed^ -- cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;viola&quot;&gt;Viola!&lt;/h3&gt;
+
+&lt;p&gt;You should now have the restored file at:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cookbooks/customer_cookbook/recipes/site.rb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 14:29:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</guid>
+			</item>
+		
+			<item>
+				<title>Python Libraries &amp; Scripts</title>
+				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
+
+&lt;h2 id=&quot;libraries&quot;&gt;Libraries&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/execsql&quot;&gt;Execsql&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/cloudtools/awacs&quot;&gt;Awacs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Mon, 20 Mar 2017 13:04:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/03/python-libraries-scripts</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/python-libraries-scripts</guid>
+			</item>
+		
+			<item>
+				<title>ProTip: Using Multiple Github Accounts &amp; Keys</title>
+				<description>&lt;p&gt;Multiple SSH Keys settings for different github account&lt;/p&gt;
+
+&lt;p&gt;create different public key&lt;/p&gt;
+
+&lt;p&gt;create different ssh key according the article Mac Set-Up Git&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-keygen -t rsa -C &quot;user1@gmail.com&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Please refer to github ssh issues for common problems.&lt;/p&gt;
+
+&lt;p&gt;for example, 2 keys created at:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.ssh/id_rsa_user1
+~/.ssh/id_rsa_user2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;then, add these two keys as following&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-add ~/.ssh/id_rsa_user1
+$ ssh-add ~/.ssh/id_rsa_user2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;you can delete all cached keys before&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-add -D
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;finally, you can check your saved keys&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-add -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Modify the ssh config&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~/.ssh/
+$ touch config
+$ subl -a config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Then added&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#user1 account
+Host github.com-user1
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_user1
+
+#user2 account
+Host github.com-user2
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_user2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Clone your repo and modify your Git config&lt;/p&gt;
+
+&lt;p&gt;clone your repo &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone git@github.com:user1/gfs.git gfs_user2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;cd gfs_user2 and modify git config&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config user.name &quot;user2&quot;
+$ git config user.email &quot;user2@gmail.com&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;or you can set the global git config&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config --global user.name &quot;user2&quot;
+$ git config --global user.email &quot;user2@gmail.com&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then use normal flow to push your code&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add .
+$ git commit -m &quot;your comments&quot;
+$ git push
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Fri, 03 Mar 2017 07:03:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/03/protip-using-multiple-github-accounts-keys</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-using-multiple-github-accounts-keys</guid>
+			</item>
+		
+			<item>
+				<title>Tools: Amazon AWS</title>
+				<description>&lt;h1 id=&quot;aws-cloudformation-tools&quot;&gt;AWS CloudFormation Tools&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Stacker&lt;/li&gt;
+  &lt;li&gt;Troposphere&lt;/li&gt;
+  &lt;li&gt;Terraform&lt;/li&gt;
+  &lt;li&gt;awacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;image-creation&quot;&gt;Image Creation&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Packer&lt;/li&gt;
+  &lt;li&gt;VMware Fusion&lt;/li&gt;
+  &lt;li&gt;Virturalbox&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/03/tools-amazon-aws</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/tools-amazon-aws</guid>
+			</item>
+		
+			<item>
+				<title>How To - Using Test Kitchen for your Chef Cookbooks</title>
+				<description>&lt;p&gt;Setup the kitchen env (Provision machine &amp;amp; run cookbooks)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen converge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Verifies an instance after it has been converged&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen verify
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Run both at once (this destroys the end image if test are successful)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Fri, 03 Feb 2017 07:11:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</guid>
+			</item>
+		
+	</channel>
+</rss>
