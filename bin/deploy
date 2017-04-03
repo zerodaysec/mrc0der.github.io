@@ -25,6 +25,7 @@ echo "Started deploying"
 cd _site/
 pwd
 #git remote -v
+git pull
 git status
 git add .
 git commit -m"Blog published $(date +%Y%m%d)"
