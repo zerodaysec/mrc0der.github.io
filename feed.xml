@@ -93,7 +93,7 @@ tips. As with anything you find here, I guarantee NOTHING. With all the NSA / De
 			</item>
 		
 			<item>
-				<title>Wp CLI Examples</title>
+				<title>Wordpress - wpcli Examples</title>
 				<description>&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wp plugin install rest-api --activate
 
 wp plugin update --all --allow-root
