@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
-# Run this script to deploy the app to Github Pages.
-
-# Exit if any subcommand fails.
-set -e
+# Run this script to deploy the blog to Github Pages.
 
 git add .
 git commit -m"Blog master auto update due to push on $(date +%Y%m%d)"
 git push origin master
+
+# Exit if any subcommand fails.
+set -e
 
 pwd
 cd _site/

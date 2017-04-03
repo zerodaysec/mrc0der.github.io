@@ -225,31 +225,31 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 &lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
 
 &lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts=1484610299&amp;amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1484610299&amp;amp;use_mirror&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cytranet -OutFile C:&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;ant.0.92.zip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
 
 &lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;gci&lt;/span&gt; -Recurse &lt;span class=&quot;s1&quot;&gt;'C:\Program Files (x86)\NAnt\'&lt;/span&gt; | Unblock-File
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Expand-ZIPFile($file, $destination)
-{
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($file)
-foreach($item in $zip.items())
-{
-$shell.Namespace($destination).copyhere($item)
-}
-}
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Expand-ZIPFile&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;new-object&lt;/span&gt; -com shell.application
+  &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.NameSpace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt;.items&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.Namespace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.copyhere&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &quot;C:\nant.0.92.zip&quot; –Destination &quot;C:\Program Files (x86)\NAnt&quot;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ant.0.92.zip&quot;&lt;/span&gt; –Destination &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files (x86)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\N&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ant&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>

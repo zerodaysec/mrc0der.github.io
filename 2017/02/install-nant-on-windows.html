@@ -107,31 +107,31 @@
 <p>https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download</p>
 
 <h3 id="powershell-example">Powershell Example</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;ts=1484610299&amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code>Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r<span class="o">=</span>https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;ts<span class="o">=</span>1484610299&amp;use_mirror<span class="o">=</span>cytranet -OutFile C:<span class="se">\n</span>ant.0.92.zip
 </code></pre>
 </div>
 
 <h3 id="unzip-to-cprogram-files-x86">Unzip to C:\Program Files (x86)\</h3>
 
 <h3 id="unblock-files">Unblock Files</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="nb">gci</span> -Recurse <span class="s1">'C:\Program Files (x86)\NAnt\'</span> | Unblock-File
 </code></pre>
 </div>
 
 <h1 id="unzip-function">Unzip function</h1>
-<div class="highlighter-rouge"><pre class="highlight"><code>function Expand-ZIPFile($file, $destination)
-{
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($file)
-foreach($item in $zip.items())
-{
-$shell.Namespace($destination).copyhere($item)
-}
-}
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Expand-ZIPFile<span class="o">(</span><span class="nv">$file</span>, <span class="nv">$destination</span><span class="o">)</span>
+<span class="o">{</span>
+  <span class="nv">$shell</span> <span class="o">=</span> <span class="nb">new-object</span> -com shell.application
+  <span class="nv">$zip</span> <span class="o">=</span> <span class="nv">$shell</span>.NameSpace<span class="o">(</span><span class="nv">$file</span><span class="o">)</span>
+  <span class="k">foreach</span><span class="o">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$zip</span>.items<span class="o">())</span>
+  <span class="o">{</span>
+    <span class="nv">$shell</span>.Namespace<span class="o">(</span><span class="nv">$destination</span><span class="o">)</span>.copyhere<span class="o">(</span><span class="nv">$item</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 <h3 id="unzip-example">Unzip Example</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>Expand-ZIPFile –File "C:\nant.0.92.zip" –Destination "C:\Program Files (x86)\NAnt"
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code>Expand-ZIPFile –File <span class="s2">"C:</span><span class="se">\n</span><span class="s2">ant.0.92.zip"</span> –Destination <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\N</span><span class="s2">Ant"</span>
 </code></pre>
 </div>
 
