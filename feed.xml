@@ -110,7 +110,7 @@ wp plugin install --allow-root https://github.com/wp-sync-db/wp-sync-db/archive/
 			</item>
 		
 			<item>
-				<title>Install NAnt on Windows</title>
+				<title>How To - Install NAnt on Windows</title>
 				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
 
 &lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
@@ -200,7 +200,7 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 			</item>
 		
 			<item>
-				<title>Python Libraries &amp; Scripts</title>
+				<title>Tools - Python Libraries &amp; Scripts</title>
 				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
 
 &lt;h2 id=&quot;libraries&quot;&gt;Libraries&lt;/h2&gt;
@@ -293,7 +293,7 @@ $ git push
 			</item>
 		
 			<item>
-				<title>Tools: Amazon AWS</title>
+				<title>Tools - Amazon AWS</title>
 				<description>&lt;h1 id=&quot;aws-cloudformation-tools&quot;&gt;AWS CloudFormation Tools&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Stacker&lt;/li&gt;
