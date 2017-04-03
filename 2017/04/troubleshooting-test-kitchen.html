@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog | Opensource Monitoring &amp; Graphing Tools </title>
+  <title>Zer0day Blog | Troubleshooting Test Kitchen </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -83,41 +83,23 @@
             <div class="col-md-8">
               <div class="article">
                 <div class="well">
-                  <h1><a href="/2017/01/opensource-monitoring-graphing-tools">Opensource Monitoring &amp; Graphing Tools</a></h1>
+                  <h1><a href="/2017/04/troubleshooting-test-kitchen">Troubleshooting Test Kitchen</a></h1>
                   <div class="post-meta">
                     <div class="post-time">
                       <i class="fa fa-calendar"></i>
-                      <time>22 Jan 2017</time>
+                      <time>03 Apr 2017</time>
                     </div>
                     <ul>
-                      
-                        <li><a href="/tag/newrelic">newrelic</a></li>
-                      
-                        <li><a href="/tag/monitoring">monitoring</a></li>
-                      
-                        <li><a href="/tag/graphing">graphing</a></li>
                       
                     </ul>
                   </div>
                   <div class="post-content">
                     <div id="toc" class="toc"></div>
-                    <h1 id="tools">Tools</h1>
-
-<h2 id="dashboards">Dashboards</h2>
-<ul>
-  <li>https://github.com/scobal/seyren</li>
-  <li>Kibana</li>
-</ul>
-
-<h2 id="blogs--articles">Blogs &amp; Articles</h2>
-<ul>
-  <li>https://community.rackspace.com/products/f/25/t/6800</li>
-  <li>http://jansipke.nl/monitoring-hosts-with-collectd-influxdb-and-grafana/</li>
-  <li>https://www.digitalocean.com/community/tutorials/how-to-configure-collectd-to-gather-system-metrics-for-graphite-on-ubuntu-14-04</li>
-  <li>
-    <h2 id="httpsgrafanacomblog2016030325-graphite-grafana-and-statsd-gotchas">https://grafana.com/blog/2016/03/03/25-graphite-grafana-and-statsd-gotchas/</h2>
-  </li>
-</ul>
+                    <p>Sometimes you get useless messages when trying to run <code class="highlighter-rouge">kitchen converge</code> and you’ll notice it cant resolve dependencies (or gives some random message that is useless.)</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>solver :ruby, :required
+</code></pre>
+</div>
+<p>^^ This added to your <code class="highlighter-rouge">Berksfile</code> can drastically help with troubleshooting.</p>
 
                     
 
