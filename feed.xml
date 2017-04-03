@@ -110,47 +110,6 @@ wp plugin install --allow-root https://github.com/wp-sync-db/wp-sync-db/archive/
 			</item>
 		
 			<item>
-				<title>How To - Install NAnt on Windows</title>
-				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
-
-&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
-&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
-
-&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts=1484610299&amp;amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
-
-&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Expand-ZIPFile($file, $destination)
-{
-$shell = new-object -com shell.application
-$zip = $shell.NameSpace($file)
-foreach($item in $zip.items())
-{
-$shell.Namespace($destination).copyhere($item)
-}
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &quot;C:\nant.0.92.zip&quot; –Destination &quot;C:\Program Files (x86)\NAnt&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-				<pubDate>Mon, 20 Mar 2017 14:32:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/03/install-nant-on-windows</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/install-nant-on-windows</guid>
-			</item>
-		
-			<item>
 				<title>ProTip - Git Recover Deleted File</title>
 				<description>&lt;h1 id=&quot;git-checkout-deleted-file&quot;&gt;Git Checkout Deleted File&lt;/h1&gt;
 
@@ -256,6 +215,47 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 				<pubDate>Fri, 03 Feb 2017 07:11:00 -0800</pubDate>
 				<link>http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</guid>
+			</item>
+		
+			<item>
+				<title>How To - Install NAnt on Windows</title>
+				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
+
+&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
+&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
+
+&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts=1484610299&amp;amp;use_mirror=cytranet -OutFile C:\nant.0.92.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
+
+&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gci -Recurse 'C:\Program Files (x86)\NAnt\' | Unblock-File
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Expand-ZIPFile($file, $destination)
+{
+$shell = new-object -com shell.application
+$zip = $shell.NameSpace($file)
+foreach($item in $zip.items())
+{
+$shell.Namespace($destination).copyhere($item)
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &quot;C:\nant.0.92.zip&quot; –Destination &quot;C:\Program Files (x86)\NAnt&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Wed, 01 Feb 2017 14:32:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/02/install-nant-on-windows</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/install-nant-on-windows</guid>
 			</item>
 		
 	</channel>
