@@ -7,286 +7,6 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>ProTip - Linters and more</title>
-				<description>&lt;p&gt;Below you will find a list of linters I use as well as other atom plugins.&lt;/p&gt;
-
-&lt;h4 id=&quot;python&quot;&gt;Python&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;pep8&lt;/li&gt;
-  &lt;li&gt;pylint&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;ruby&quot;&gt;Ruby&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;rubocop&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;chef&quot;&gt;Chef&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;foodcriic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;atom-plugins&quot;&gt;Atom Plugins&lt;/h4&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Built-in Atom Packages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;89&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-├── atom-dark-syntax@0.28.0
-├── atom-dark-ui@0.53.0
-├── atom-light-syntax@0.29.0
-├── atom-light-ui@0.46.0
-├── base16-tomorrow-dark-theme@1.5.0
-├── base16-tomorrow-light-theme@1.5.0
-├── one-dark-ui@1.9.1
-├── one-light-ui@1.9.1
-├── one-dark-syntax@1.7.1
-├── one-light-syntax@1.7.1
-├── solarized-dark-syntax@1.1.2
-├── solarized-light-syntax@1.1.2
-├── about@1.7.2
-├── archive-view@0.62.2
-├── autocomplete-atom-api@0.10.0
-├── autocomplete-css@0.15.0
-├── autocomplete-html@0.7.2
-├── autocomplete-plus@2.34.2
-├── autocomplete-snippets@1.11.0
-├── autoflow@0.29.0
-├── autosave@0.24.0
-├── background-tips@0.26.1
-├── bookmarks@0.44.1
-├── bracket-matcher@0.85.2
-├── &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;-palette@0.40.1
-├── deprecation-cop@0.56.2
-├── dev-live-reload@0.47.0
-├── encoding-selector@0.23.1
-├── exception-reporting@0.41.0
-├── find-and-replace@0.206.3
-├── fuzzy-finder@1.4.1
-├── git-diff@1.3.1
-├── go-to-line@0.32.0
-├── grammar-selector@0.49.1
-├── image-view@0.60.0
-├── incompatible-packages@0.26.1
-├── keybinding-resolver@0.36.1
-├── line-ending-selector@0.6.1
-├── link@0.31.2
-├── markdown-preview@0.159.6
-├── metrics@1.1.3
-├── notifications@0.66.2
-├── open-on-github@1.2.1
-├── package-generator@1.1.0
-├── settings-view@0.247.0
-├── snippets@1.0.5
-├── spell-check@0.70.2
-├── status-bar@1.8.1
-├── styleguide@0.49.2
-├── symbols-view@0.114.0
-├── tabs@0.104.1
-├── timecop@0.34.0
-├── tree-view@0.214.1
-├── update-package-dependencies@0.10.0
-├── welcome@0.36.0
-├── whitespace@0.36.2
-├── wrap-guide@0.39.0
-├── language-c@0.56.0
-├── language-clojure@0.22.2
-├── language-coffee-script@0.48.5
-├── language-csharp@0.14.2
-├── language-css@0.42.0
-├── language-gfm@0.88.1
-├── language-git@0.19.0
-├── language-go@0.43.1
-├── language-html@0.47.2
-├── language-hyperlink@0.16.1
-├── language-java@0.26.0
-├── language-javascript@0.126.1
-├── language-json@0.18.3
-├── language-less@0.30.1
-├── language-make@0.22.3
-├── language-mustache@0.13.1
-├── language-objective-c@0.15.1
-├── language-perl@0.37.0
-├── language-php@0.37.4
-├── language-property-list@0.9.0
-├── language-python@0.45.2
-├── language-ruby@0.70.5
-├── language-ruby-on-rails@0.25.2
-├── language-sass@0.57.1
-├── language-shellscript@0.25.0
-├── language-source@0.9.0
-├── language-sql@0.25.3
-├── language-text@0.7.1
-├── language-todo@0.29.1
-├── language-toml@0.18.1
-├── language-xml@0.34.16
-└── language-yaml@0.28.0
-
-Community Packages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;86&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; /Users/jon/.atom/packages
-├── acid-syntax@1.0.0
-├── atom-autocomplete-php@0.22.2
-├── atom-beautify@0.29.17
-├── atom-bootstrap3@1.2.12
-├── atom-bootstrap4@1.4.0
-├── atom-cform@0.6.0
-├── atom-cform-yaml@0.4.1
-├── atom-clock@0.1.6
-├── atom-yamljson@0.2.4
-├── auto-update-packages@1.0.1
-├── autocomplete-modules@1.6.8
-├── autocomplete-python@1.8.63
-├── build@0.67.0
-├── build-dockerfile@1.0.1
-├── busy@0.7.0
-├── busy-signal@1.3.0
-├── color-picker@2.2.5
-├── colorblind-wombat-dark-syntax@0.6.0
-├── dark-side-of-the-moon-syntax@0.6.22
-├── dash@1.7.1
-├── docker@0.7.0
-├── file-icons@2.1.2
-├── git-control@0.8.2
-├── git-log@0.4.1
-├── git-plus@7.3.3
-├── git-time-machine@1.5.9
-├── goto-definition@1.3.1
-├── gtk-dark-theme@0.1.4
-├── highlight-selected@0.13.1
-├── iam-syntax@0.1.2
-├── indent-guide-improved@1.4.12
-├── intentions@1.1.2
-├── language-ansible@0.2.1
-├── language-arduino@0.4.3
-├── language-awk@0.1.12
-├── language-chef@0.9.0
-├── language-docker@1.1.7
-├── language-nginx@0.7.0
-├── language-powershell@4.0.0
-├── language-puppet@0.22.0
-├── language-terraform@0.8.0
-├── linter@2.1.2
-├── linter-ansible-syntax@1.1.3
-├── linter-bro@2.3.1
-├── linter-cookstyle@2.3.0
-├── linter-docker@0.1.5
-├── linter-erb@1.0.4
-├── linter-foodcritic@0.5.4
-├── linter-js-cloudformation-yaml@2.2.1
-├── linter-markdown@3.1.0
-├── linter-pycodestyle@2.0.2
-├── linter-pylint@2.0.1
-├── linter-python-pep8@0.2.0
-├── linter-rubocop@1.1.1
-├── linter-ruby@1.2.5
-├── linter-shellcheck@1.4.4
-├── linter-spell@0.13.0
-├── linter-terraform-syntax@1.1.2
-├── linter-tidy@2.3.1
-├── linter-ui-default@1.2.2
-├── linter-write-good@0.9.0
-├── linter-xmllint@1.4.1
-├── markdown-preview-plus@2.4.9
-├── markdown-writer@2.6.4
-├── merge-conflicts@1.4.4
-├── minimap@4.27.0
-├── minimap-highlight-selected@4.6.0
-├── minimap-linter@2.0.0
-├── node-debugger@1.10.1
-├── nodejs-snippets@2.0.2
-├── open-in-sourcetree@0.1.8
-├── open-recent@5.0.0
-├── open-terminal-here@2.3.0
-├── pastel-jelly-syntax@0.2.0
-├── pastel-jelly-ui@0.3.0
-├── pdf-view@0.57.0
-├── pretty-json@1.6.3
-├── print-code@0.6.0
-├── project-manager@3.3.4
-├── python-autopep8@0.1.3
-├── python-indent@1.0.2
-├── qolor@0.4.1
-├── script@3.14.1
-├── theme-toggler@0.7.0
-├── todo-show@1.11.0
-└── tool-bar-markdown-writer@0.2.0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-				<pubDate>Tue, 04 Apr 2017 08:42:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/04/protip-linters-and-more</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/protip-linters-and-more</guid>
-			</item>
-		
-			<item>
-				<title>ProTip - Am I ready to Commit?</title>
-				<description>&lt;p&gt;I often would want to submit for a PR, and have comments / other things that need to be addressed before this is ready for a PR. While this is named ‘Am I ready to commit?’ I personally am trying to apply as much of the below as possible. In reality the below should be geared more toward making a PR; but i’m hard on myself and want to ensure each commit is meaningful.&lt;/p&gt;
-
-&lt;h2 id=&quot;am-i-ready-to-commit&quot;&gt;Am I ready to commit?&lt;/h2&gt;
-
-&lt;h4 id=&quot;did-i&quot;&gt;Did I?&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Meet all requirements for the Jira task / Issue / Ticket etc.&lt;/li&gt;
-  &lt;li&gt;Ensure no linter errors messages
-    &lt;ul&gt;
-      &lt;li&gt;Linter messages ignored when applicable&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Does &lt;code class=&quot;highlighter-rouge&quot;&gt;kitchen converge&lt;/code&gt; run successfully?&lt;/li&gt;
-  &lt;li&gt;Update README(s) for cookbooks / stacks
-    &lt;ul&gt;
-      &lt;li&gt;Add the new function / capability to README(s)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Spellcheck / Proofread &lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Below is a full list, properly named, ‘Am I ready for a PR?’&lt;/p&gt;
-
-&lt;h2 id=&quot;am-i-ready-for-a-pr&quot;&gt;Am I ready for a PR?&lt;/h2&gt;
-
-&lt;h4 id=&quot;did-i-1&quot;&gt;Did I?&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Meet all requirements for the Jira task / Issue / Ticket etc.&lt;/li&gt;
-  &lt;li&gt;Follow any style guides required&lt;/li&gt;
-  &lt;li&gt;Bump cookbook version(s)&lt;/li&gt;
-  &lt;li&gt;Bump stacker blueprints version(s)&lt;/li&gt;
-  &lt;li&gt;Bump &lt;strong&gt;__&lt;/strong&gt; version(s)&lt;/li&gt;
-  &lt;li&gt;Update cookbooks/metadata.rb&lt;/li&gt;
-  &lt;li&gt;Update README(s) for cookbooks / stacks
-    &lt;ul&gt;
-      &lt;li&gt;Add the new function / capability to README(s)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Spellcheck / Proofread &lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Update .gitignore for any non essential files&lt;/li&gt;
-  &lt;li&gt;Did you update the CHANGELOG&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;did-you-double-and-triple-check-the-above&quot;&gt;Did you double and triple check the above?&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;If so, do it &lt;strong&gt;again&lt;/strong&gt;, chances are you missed something…&lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt; lol&lt;/li&gt;
-  &lt;li&gt;Once that is done, you should be ready to submit your PR.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Tue, 04 Apr 2017 08:03:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/04/protip-am-i-ready-to-commit</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/protip-am-i-ready-to-commit</guid>
-			</item>
-		
-			<item>
-				<title>Troubleshooting - Test Kitchen</title>
-				<description>&lt;p&gt;Sometimes you get useless messages when trying to run &lt;code class=&quot;highlighter-rouge&quot;&gt;kitchen converge&lt;/code&gt; and you’ll notice it cant resolve dependencies (or gives some random message that is useless.)&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;solver :ruby, :required
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;^^ This added to your &lt;code class=&quot;highlighter-rouge&quot;&gt;Berksfile&lt;/code&gt; can drastically help with troubleshooting.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 03 Apr 2017 08:00:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/04/troubleshooting-test-kitchen</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/troubleshooting-test-kitchen</guid>
-			</item>
-		
-			<item>
 				<title>ProTip - AWS ElasticSearch 5.1 Deployment</title>
 				<description>&lt;p&gt;When deploying Elasticsearch 5.1 via Cloudformation there are 2 important things to know. Both are Advanced Options for Elasticsearch that are listed as &lt;strong&gt;optional&lt;/strong&gt;, but your CFN stack will FAIL to deploy if they are not set.&lt;/p&gt;
 
@@ -460,6 +180,94 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
 				<link>http://mrc0der.github.io/2017/03/tools-amazon-aws</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/tools-amazon-aws</guid>
+			</item>
+		
+			<item>
+				<title>How To - Using Test Kitchen for your Chef Cookbooks</title>
+				<description>&lt;p&gt;Setup the kitchen env (Provision machine &amp;amp; run cookbooks)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen converge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Verifies an instance after it has been converged&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen verify
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Run both at once (this destroys the end image if test are successful)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Fri, 03 Feb 2017 07:11:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</guid>
+			</item>
+		
+			<item>
+				<title>How To - Install NAnt on Windows</title>
+				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
+
+&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
+&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
+
+&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1484610299&amp;amp;use_mirror&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cytranet -OutFile C:&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;ant.0.92.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
+
+&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;gci&lt;/span&gt; -Recurse &lt;span class=&quot;s1&quot;&gt;'C:\Program Files (x86)\NAnt\'&lt;/span&gt; | Unblock-File
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Expand-ZIPFile&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;new-object&lt;/span&gt; -com shell.application
+  &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.NameSpace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt;.items&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.Namespace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.copyhere&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ant.0.92.zip&quot;&lt;/span&gt; –Destination &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files (x86)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\N&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ant&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Wed, 01 Feb 2017 14:32:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/02/install-nant-on-windows</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/install-nant-on-windows</guid>
+			</item>
+		
+			<item>
+				<title>Opensource Monitoring &amp; Graphing Tools</title>
+				<description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+
+&lt;h2 id=&quot;dashboards&quot;&gt;Dashboards&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://github.com/scobal/seyren&lt;/li&gt;
+  &lt;li&gt;Kibana&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;blogs--articles&quot;&gt;Blogs &amp;amp; Articles&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://community.rackspace.com/products/f/25/t/6800&lt;/li&gt;
+  &lt;li&gt;http://jansipke.nl/monitoring-hosts-with-collectd-influxdb-and-grafana/&lt;/li&gt;
+  &lt;li&gt;https://www.digitalocean.com/community/tutorials/how-to-configure-collectd-to-gather-system-metrics-for-graphite-on-ubuntu-14-04&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;httpsgrafanacomblog2016030325-graphite-grafana-and-statsd-gotchas&quot;&gt;https://grafana.com/blog/2016/03/03/25-graphite-grafana-and-statsd-gotchas/&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Sun, 22 Jan 2017 11:59:00 -0800</pubDate>
+				<link>http://mrc0der.github.io/2017/01/opensource-monitoring-graphing-tools</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/01/opensource-monitoring-graphing-tools</guid>
 			</item>
 		
 	</channel>
