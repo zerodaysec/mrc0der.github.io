@@ -105,6 +105,8 @@
 
 <p>If you want to actually execute on the drop or create, you’ll need to execute <code class="highlighter-rouge">EXEC sp_executesql @drop</code> then load your data, and re apply the FKs with <code class="highlighter-rouge">EXEC sp_executesql @create;</code></p>
 
+<p>All credit goes to the <a href="https://www.mssqltips.com/sqlservertip/3347/drop-and-recreate-all-foreign-key-constraints-in-sql-server/">original author</a> &lt;- blog post here</p>
+
 <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sysobjects</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="n">object_id</span><span class="p">(</span><span class="n">N</span><span class="s1">'[dbo].[FK_Details]'</span><span class="p">)</span>
 <span class="k">AND</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">N</span><span class="s1">'IsUserTable'</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">FK_Details</span> <span class="p">(</span>
@@ -241,13 +243,13 @@ EXEC sp_executesql @create;
     
     <li><a href="/2017/04/sql-server-drop-and-recreate-fks-pragmatically">SQL Server - Drop and Recreate FKs Pragmatically</a></li>
     
+    <li><a href="/2017/04/protip-linters-and-more">ProTip - Linters and more</a></li>
+    
     <li><a href="/2017/03/protip-aws-elasticsearch-5-1-deployment">ProTip - AWS ElasticSearch 5.1 Deployment</a></li>
     
     <li><a href="/2017/03/wordpress-plugins-to-use">Wordpress - Wordpress plugins to use</a></li>
     
     <li><a href="/2017/03/wp-cli-examples">Wordpress - wpcli Examples</a></li>
-    
-    <li><a href="/2017/03/protip-git-recover-deleted-file">ProTip - Git Recover Deleted File</a></li>
     
   </ul>
 </div>
@@ -322,7 +324,7 @@ EXEC sp_executesql @create;
         <span>newrelic</span></a></li>
     
     <li>
-      <a href="/tag/protip" data-toggle="tooltip" data-placement="right" title="2">
+      <a href="/tag/protip" data-toggle="tooltip" data-placement="right" title="3">
         <span>protip</span></a></li>
     
     <li>
