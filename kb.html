@@ -97,7 +97,6 @@
 <h2 id="cli-tricks">CLI Tricks</h2>
 
 <h3 id="jq---json-query"><code class="highlighter-rouge">jq</code> - json query</h3>
-
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>jq <span class="s1">'.ReplicationGroups[].NodeGroups[]'</span>
 <span class="gp">$&gt; </span>jq <span class="s1">'.items[].id'</span>
 <span class="gp">$&gt; </span>aws --region<span class="o">=</span>us-west-2 elasticache describe-replication-groups | jq <span class="s1">'.ReplicationGroups[].NodeGroups[] | select(.Status=="Available")'</span>
@@ -105,21 +104,22 @@
 </div>
 
 <h3 id="nmap-examples">Nmap Examples</h3>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># DNS Brute Force</span>
+nmap -p 80 --script dns-brute.nse taraget.fqdn
 
-<h4 id="dns-brute-force">DNS Brute Force</h4>
-<p><code class="highlighter-rouge">nmap -p 80 --script dns-brute.nse taraget.fqdn</code></p>
+<span class="c"># Find Hosts on IP</span>
+nmap -p 80 --script hostmap-bkf.nse taraget.fqdn
 
-<h4 id="find-hosts-on-ip">Find Hosts on IP</h4>
-<p><code class="highlighter-rouge">nmap -p 80 --script hostmap-bkf.nse taraget.fqdn</code></p>
+<span class="c"># Traceroute Geolocation</span>
+sudo nmap --traceroute --script traceroute-geolocation.nse -p 80 taraget.fqdn
 
-<h4 id="traceroute-geolocation">Traceroute Geolocation</h4>
-<p><code class="highlighter-rouge">sudo nmap --traceroute --script traceroute-geolocation.nse -p 80 taraget.fqdn</code></p>
+<span class="c"># HTTP Enumeration</span>
+nmap -p 80 --script http-enum.nse taraget.fqdn
 
-<h4 id="http-enumeration">HTTP Enumeration</h4>
-<p><code class="highlighter-rouge">nmap -p 80 --script http-enum.nse taraget.fqdn</code></p>
-
-<h4 id="http-enumeration--path">HTTP Enumeration / path</h4>
-<p><code class="highlighter-rouge">nmap -p 80 --script http-enum.nse http-enum.basepath='pub/' taraget.fqdn</code></p>
+<span class="c"># HTTP Enumeration / path</span>
+nmap -p 80 --script http-enum.nse http-enum.basepath<span class="o">=</span><span class="s1">'pub/'</span> taraget.fqdn
+</code></pre>
+</div>
 
 <h1 id="chef-resources">Chef Resources</h1>
 
