@@ -96,7 +96,7 @@
 
 <h2 id="cli-tricks">CLI Tricks</h2>
 
-<h3 id="jq---json-query"><code class="highlighter-rouge">jq</code> - json query</h3>
+<p><code class="highlighter-rouge">jq</code> - json query</p>
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>jq <span class="s1">'.ReplicationGroups[].NodeGroups[]'</span>
 <span class="gp">$&gt; </span>jq <span class="s1">'.items[].id'</span>
 <span class="gp">$&gt; </span>aws --region<span class="o">=</span>us-west-2 elasticache describe-replication-groups | jq <span class="s1">'.ReplicationGroups[].NodeGroups[] | select(.Status=="Available")'</span>
