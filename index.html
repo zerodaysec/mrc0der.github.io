@@ -143,7 +143,9 @@
   </h1>
 
 
-<div class="entry-content"><p>Drop all constraint checks, disable triggers, delete all data, enable constraints, enable triggers.</p>
+<div class="entry-content"><h4 id="disable-constraints-load-data-enable-constraints">Disable constraints, load data, Enable constraints</h4>
+
+<p>Drop all constraint checks, disable triggers, delete all data, enable constraints, enable triggers.</p>
 
 <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SET</span> <span class="n">QUOTED_IDENTIFIER</span> <span class="k">ON</span><span class="p">;</span>
 <span class="k">EXEC</span> <span class="n">sp_MSforeachtable</span> <span class="s1">'SET QUOTED_IDENTIFIER ON; ALTER TABLE ? NOCHECK CONSTRAINT ALL'</span>  
@@ -165,6 +167,37 @@ IF NOT EXISTS (
 AND OBJECTPROPERTY( OBJECT_ID(</span><span class="se">''</span><span class="s1">?</span><span class="se">''</span><span class="s1">), </span><span class="se">''</span><span class="s1">TableHasIdentity</span><span class="se">''</span><span class="s1"> ) = 1
 
     DBCC CHECKIDENT (</span><span class="se">''</span><span class="s1">?</span><span class="se">''</span><span class="s1">, RESEED, 0) WITH NO_INFOMSGS'</span>
+</code></pre>
+</div>
+
+<h4 id="list-tables-and-their-sizes">List tables and their sizes</h4>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">NAME</span> <span class="k">AS</span> <span class="n">TableName</span><span class="p">,</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">Name</span> <span class="k">AS</span> <span class="n">SchemaName</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">.</span><span class="k">rows</span> <span class="k">AS</span> <span class="n">RowCounts</span><span class="p">,</span>
+    <span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">total_pages</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span> <span class="k">AS</span> <span class="n">TotalSpaceKB</span><span class="p">,</span>
+    <span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">used_pages</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span> <span class="k">AS</span> <span class="n">UsedSpaceKB</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">total_pages</span><span class="p">)</span> <span class="o">-</span> <span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">used_pages</span><span class="p">))</span> <span class="o">*</span> <span class="mi">8</span> <span class="k">AS</span> <span class="n">UnusedSpaceKB</span>
+<span class="k">FROM</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">tables</span> <span class="n">t</span>
+<span class="k">INNER</span> <span class="k">JOIN</span>      
+    <span class="n">sys</span><span class="p">.</span><span class="n">indexes</span> <span class="n">i</span> <span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">OBJECT_ID</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">object_id</span>
+<span class="k">INNER</span> <span class="k">JOIN</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">partitions</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">i</span><span class="p">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">OBJECT_ID</span> <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">index_id</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">index_id</span>
+<span class="k">INNER</span> <span class="k">JOIN</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">allocation_units</span> <span class="n">a</span> <span class="k">ON</span> <span class="n">p</span><span class="p">.</span><span class="n">partition_id</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">container_id</span>
+<span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">schemas</span> <span class="n">s</span> <span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">schema_id</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">schema_id</span>
+<span class="k">WHERE</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">NAME</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'dt%'</span>
+    <span class="k">AND</span> <span class="n">t</span><span class="p">.</span><span class="n">is_ms_shipped</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">AND</span> <span class="n">i</span><span class="p">.</span><span class="n">OBJECT_ID</span> <span class="o">&gt;</span> <span class="mi">255</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="k">Rows</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="n">UsedSpaceKB</span>
+	<span class="k">DESC</span>
 </code></pre>
 </div>
 </div>
