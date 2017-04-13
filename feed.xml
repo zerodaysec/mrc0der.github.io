@@ -7,6 +7,52 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>AWS RDS MySQL SSL Connection</title>
+				<description>&lt;p&gt;In order to connect to AWS RDS MySQL Using SSL, you must first have the AWS CA Cert locally so that you can validate the cert provided by the MySQL Server.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/bc05390b9ef0c470404da641ad399dd9.js&quot;&gt; &lt;/script&gt;
+
+</description>
+				<pubDate>Thu, 13 Apr 2017 13:22:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/04/aws-rds-mysql-ssl-connection</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/aws-rds-mysql-ssl-connection</guid>
+			</item>
+		
+			<item>
+				<title>ProTip - SQL Server Snippets</title>
+				<description>&lt;p&gt;Drop all constraint checks, disable triggers, delete all data, enable constraints, enable triggers.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON; ALTER TABLE ? NOCHECK CONSTRAINT ALL'&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON; ALTER TABLE ? DISABLE TRIGGER ALL'&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON; DELETE FROM ?'&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON; ALTER TABLE ? CHECK CONSTRAINT ALL'&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON; ALTER TABLE ? ENABLE TRIGGER ALL'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;EXEC&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp_MSforeachtable&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SET QUOTED_IDENTIFIER ON;
+
+IF NOT EXISTS (
+    SELECT
+        *
+    FROM
+        SYS.IDENTITY_COLUMNS
+        JOIN SYS.TABLES ON SYS.IDENTITY_COLUMNS.Object_ID = SYS.TABLES.Object_ID
+    WHERE
+        SYS.TABLES.Object_ID = OBJECT_ID(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;) AND SYS.IDENTITY_COLUMNS.Last_Value IS NULL
+)
+AND OBJECTPROPERTY( OBJECT_ID(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;TableHasIdentity&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; ) = 1
+
+    DBCC CHECKIDENT (&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;, RESEED, 0) WITH NO_INFOMSGS'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Tue, 11 Apr 2017 18:45:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/04/protip-sql-server-snippets</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/protip-sql-server-snippets</guid>
+			</item>
+		
+			<item>
 				<title>SQL Server - Drop and Recreate FKs Pragmatically</title>
 				<description>&lt;p&gt;While trying to load a large amount of data into SQL Server I was having an issue trying to truncate tables prior to loading the data, and I was unable to due to some FK constraints. My initial research led me to scripting the removal and creation of the FK constraints, but then i wondered, what if they changed. What if the end user added more that I was unaware of? My search then led me to a blog post where the original author was able to pragmatically backup, drop and recreate the FK Constraints. I modified the script a little to check for the existence of the FK_Details table first before trying to create it.&lt;/p&gt;
 
@@ -463,69 +509,6 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
 				<link>http://mrc0der.github.io/2017/03/tools-amazon-aws</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/tools-amazon-aws</guid>
-			</item>
-		
-			<item>
-				<title>How To - Using Test Kitchen for your Chef Cookbooks</title>
-				<description>&lt;p&gt;Setup the kitchen env (Provision machine &amp;amp; run cookbooks)&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen converge
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Verifies an instance after it has been converged&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen verify
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Run both at once (this destroys the end image if test are successful)&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kitchen &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-				<pubDate>Fri, 03 Feb 2017 07:11:00 -0800</pubDate>
-				<link>http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/how-to-using-test-kitchen-for-your-chef-cookbooks</guid>
-			</item>
-		
-			<item>
-				<title>How To - Install NAnt on Windows</title>
-				<description>&lt;h1 id=&quot;installing-nant-on-windows-server-2012&quot;&gt;Installing NAnt on Windows Server 2012&lt;/h1&gt;
-
-&lt;h2 id=&quot;url-for-download&quot;&gt;URL for Download&lt;/h2&gt;
-&lt;p&gt;https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip/download&lt;/p&gt;
-
-&lt;h3 id=&quot;powershell-example&quot;&gt;Powershell Example&lt;/h3&gt;
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Invoke-WebRequest -Uri  https://downloads.sourceforge.net/project/nant/nant/0.92/nant-0.92-bin.zip?r&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https%3A%2F%2Fsourceforge.net%2Fprojects%2Fnant%2Ffiles%2Fnant%2F0.92%2F&amp;amp;ts&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1484610299&amp;amp;use_mirror&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cytranet -OutFile C:&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;ant.0.92.zip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;unzip-to-cprogram-files-x86&quot;&gt;Unzip to C:\Program Files (x86)\&lt;/h3&gt;
-
-&lt;h3 id=&quot;unblock-files&quot;&gt;Unblock Files&lt;/h3&gt;
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;gci&lt;/span&gt; -Recurse &lt;span class=&quot;s1&quot;&gt;'C:\Program Files (x86)\NAnt\'&lt;/span&gt; | Unblock-File
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;unzip-function&quot;&gt;Unzip function&lt;/h1&gt;
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Expand-ZIPFile&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;new-object&lt;/span&gt; -com shell.application
-  &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.NameSpace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$zip&lt;/span&gt;.items&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$shell&lt;/span&gt;.Namespace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.copyhere&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;unzip-example&quot;&gt;Unzip Example&lt;/h3&gt;
-&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expand-ZIPFile –File &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ant.0.92.zip&quot;&lt;/span&gt; –Destination &lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files (x86)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\N&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ant&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-				<pubDate>Wed, 01 Feb 2017 14:32:00 -0800</pubDate>
-				<link>http://mrc0der.github.io/2017/02/install-nant-on-windows</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/02/install-nant-on-windows</guid>
 			</item>
 		
 	</channel>

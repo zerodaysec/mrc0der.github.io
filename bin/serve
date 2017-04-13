@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+#cd ..
+
+kill $(ps aux | grep '[j]ekyll' | awk '{print $2}')
+
+jekyll serve
