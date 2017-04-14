@@ -86,6 +86,39 @@
                 
 <div class="post-time">
   <i class="fa fa-calendar"></i>
+  <time datetime='2017-04-14'>14 Apr 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page2/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/04/installing-suricata">Installing Suricata</a>
+  </h1>
+
+
+<div class="entry-content">
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/sqlserver">sqlserver</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/protip">protip</a></li>
+    
+  </ul>
+</div>
+
+  
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
   <time datetime='2017-04-13'>13 Apr 2017</time>
 </div>
 
@@ -558,77 +591,6 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
 </div>
 
   
-<div class="post-time">
-  <i class="fa fa-calendar"></i>
-  <time datetime='2017-03-29'>29 Mar 2017</time>
-</div>
-
-  <div class="blog-index">
-    
-    
-    <h1 class="entry-title">
-    <a href="/page2/"></a>
-</h1>
-
-  <h1 class="entry-title">
-    <a href="/2017/03/protip-aws-elasticsearch-5-1-deployment">ProTip - AWS ElasticSearch 5.1 Deployment</a>
-  </h1>
-
-
-<div class="entry-content"><p>When deploying Elasticsearch 5.1 via Cloudformation there are 2 important things to know. Both are Advanced Options for Elasticsearch that are listed as <strong>optional</strong>, but your CFN stack will FAIL to deploy if they are not set.</p>
-
-<h6 id="symptoms">Symptoms:</h6>
-<ul>
-  <li>In AWS console it will show stack as <em>CREATE_IN_PROGRESS</em> for ~1hr</li>
-  <li>Stack will rollback with ‘Cluster did not stabilize’</li>
-  <li>Same stack with v2.3 will deploy fine…</li>
-</ul>
-
-<p>Im sure by the time someone else finds this post it will be fixed, but if not, see below.</p>
-
-<h5 id="json-example--">JSON Example -</h5>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"ElasticsearchDomain"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"Properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="err">...YOUR</span><span class="w"> </span><span class="err">CONFIG...</span><span class="w">
-        </span><span class="nt">"AdvancedOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"indices.fielddata.cache.size"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"rest.action.multi.allow_explicit_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<h5 id="yaml-example--">Yaml Example -</h5>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ElasticsearchDomain</span><span class="pi">:</span>
-  <span class="s">Type</span><span class="pi">:</span> <span class="s">AWS::Elasticsearch::Domain</span>
-  <span class="s">Properties</span><span class="pi">:</span>
-    <span class="s">...YOUR CONFIG...</span>
-    <span class="s">AdvancedOptions</span><span class="pi">:</span>
-      <span class="s">indices.fielddata.cache.size</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-      <span class="s">rest.action.multi.allow_explicit_index</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
-</code></pre>
-</div>
-</div>
-
-  </div>
-
-  <div class="post-meta">
-  <ul>
-    
-    <li><a href="http://mrc0der.github.io/tag/aws">aws</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/elasticsearch">elasticsearch</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/cloudformation">cloudformation</a></li>
-    
-    <li><a href="http://mrc0der.github.io/tag/protip">protip</a></li>
-    
-  </ul>
-</div>
-
-  
 
               </div>
             </div>
@@ -637,6 +599,8 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2017/04/installing-suricata">Installing Suricata</a></li>
+    
     <li><a href="/2017/04/aws-rds-mysql-ssl-connection">AWS RDS MySQL SSL Connection</a></li>
     
     <li><a href="/2017/04/protip-sql-server-snippets">ProTip - SQL Server Snippets</a></li>
@@ -644,8 +608,6 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
     <li><a href="/2017/04/sql-server-drop-and-recreate-fks-pragmatically">SQL Server - Drop and Recreate FKs Pragmatically</a></li>
     
     <li><a href="/2017/04/protip-linters-and-more">ProTip - Linters and more</a></li>
-    
-    <li><a href="/2017/03/protip-aws-elasticsearch-5-1-deployment">ProTip - AWS ElasticSearch 5.1 Deployment</a></li>
     
   </ul>
 </div>
@@ -688,7 +650,7 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
         <span>elasticsearch</span></a></li>
     
     <li>
-      <a href="/tag/git" data-toggle="tooltip" data-placement="right" title="1">
+      <a href="/tag/git" data-toggle="tooltip" data-placement="right" title="2">
         <span>git</span></a></li>
     
     <li>
@@ -728,7 +690,7 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
         <span>newrelic</span></a></li>
     
     <li>
-      <a href="/tag/protip" data-toggle="tooltip" data-placement="right" title="5">
+      <a href="/tag/protip" data-toggle="tooltip" data-placement="right" title="7">
         <span>protip</span></a></li>
     
     <li>
@@ -748,7 +710,7 @@ Community Packages <span class="o">(</span>86<span class="o">)</span> /Users/jon
         <span>snort</span></a></li>
     
     <li>
-      <a href="/tag/sqlserver" data-toggle="tooltip" data-placement="right" title="2">
+      <a href="/tag/sqlserver" data-toggle="tooltip" data-placement="right" title="3">
         <span>sqlserver</span></a></li>
     
     <li>

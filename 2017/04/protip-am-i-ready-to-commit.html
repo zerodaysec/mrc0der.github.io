@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zer0day Blog | Posts Tagged &ldquo;sqlserver&rdquo; </title>
+  <title>Zer0day Blog | ProTip - Am I ready to Commit? </title>
   <meta name="theme-color" content="#222222" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/js/jquery.min.js"></script>
@@ -76,177 +76,91 @@
     </div>
   </nav>
 
-
     <div class="wrapper">
       <div class="content">
         <div class="container container-center">
           <div class="row">
             <div class="col-md-8">
-              <div class="well">
-                <div class="page-content wc-container">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2017/04/protip-am-i-ready-to-commit">ProTip - Am I ready to Commit?</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>04 Apr 2017</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/git">git</a></li>
+                      
+                        <li><a href="/tag/protip">protip</a></li>
+                      
+                    </ul>
+                  </div>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p>I often would want to submit for a PR, and have comments / other things that need to be addressed before this is ready for a PR. While this is named ‘Am I ready to commit?’ I personally am trying to apply as much of the below as possible. In reality the below should be geared more toward making a PR; but i’m hard on myself and want to ensure each commit is meaningful.</p>
 
-  <div class="post">
-    <h2 class="post_title">Posts Tagged &ldquo;sqlserver&rdquo;</h2>
+<h2 id="am-i-ready-to-commit">Am I ready to commit?</h2>
+
+<h4 id="did-i">Did I?</h4>
+
+<ul>
+  <li>Meet all requirements for the Jira task / Issue / Ticket etc.</li>
+  <li>Ensure no linter errors messages
     <ul>
-      
-        
-          
-          <li class="archive_list">
-            <time>14 Apr 2017</time>
-            <a class="archive_list_article_link" href='/2017/04/installing-suricata'>Installing Suricata</a>
-            <p></p>
-          </li>
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-          <li class="archive_list">
-            <time>11 Apr 2017</time>
-            <a class="archive_list_article_link" href='/2017/04/protip-sql-server-snippets'>ProTip - SQL Server Snippets</a>
-            <p></p>
-          </li>
-          
-        
-          
-        
-      
-        
-          
-          <li class="archive_list">
-            <time>11 Apr 2017</time>
-            <a class="archive_list_article_link" href='/2017/04/sql-server-drop-and-recreate-fks-pragmatically'>SQL Server - Drop and Recreate FKs Pragmatically</a>
-            <p></p>
-          </li>
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
-        
-      
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-        
-          
-        
-      
+      <li>Linter messages ignored when applicable</li>
     </ul>
-  </div>
-</div>
+  </li>
+  <li>Does <code class="highlighter-rouge">kitchen converge</code> run successfully?</li>
+  <li>Update README(s) for cookbooks / stacks
+    <ul>
+      <li>Add the new function / capability to README(s)</li>
+    </ul>
+  </li>
+  <li>Spellcheck / Proofread <strong><em>mrc0der!</em></strong></li>
+</ul>
 
+<hr />
+
+<p>Below is a full list, properly named, ‘Am I ready for a PR?’</p>
+
+<h2 id="am-i-ready-for-a-pr">Am I ready for a PR?</h2>
+
+<h4 id="did-i-1">Did I?</h4>
+
+<ul>
+  <li>Meet all requirements for the Jira task / Issue / Ticket etc.</li>
+  <li>Follow any style guides required</li>
+  <li>Bump cookbook version(s)
+    <ul>
+      <li>Include new / updated cookbook in env files</li>
+    </ul>
+  </li>
+  <li>Bump stacker blueprints version(s)</li>
+  <li>Bump <strong>__</strong> version(s)</li>
+  <li>Update cookbooks/metadata.rb</li>
+  <li>Update README(s) for cookbooks / stacks
+    <ul>
+      <li>Add the new function / capability to README(s)</li>
+    </ul>
+  </li>
+  <li>Spellcheck / Proofread <strong><em>mrc0der!</em></strong></li>
+  <li>Update .gitignore for any non essential files</li>
+  <li>Did you update the CHANGELOG</li>
+</ul>
+
+<h4 id="did-you-double-and-triple-check-the-above">Did you double and triple check the above?</h4>
+<ul>
+  <li>If so, do it <strong>again</strong>, chances are you missed something…<strong><em>mrc0der!</em></strong> lol</li>
+  <li>Once that is done, you should be ready to submit your PR.</li>
+</ul>
+
+                    
+
+                  </div>
+                  
+                </div>
               </div>
             </div>
             <div class="col-md-4 hidden-xs">
@@ -398,6 +312,8 @@
             </div>
           </div>
         </div>
+        
+
       </div>
           <footer class="footer-distributed">
       <div class="container">

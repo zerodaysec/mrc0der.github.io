@@ -7,6 +7,15 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Installing Suricata</title>
+				<description>
+</description>
+				<pubDate>Fri, 14 Apr 2017 08:36:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/04/installing-suricata</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/installing-suricata</guid>
+			</item>
+		
+			<item>
 				<title>AWS RDS MySQL SSL Connection</title>
 				<description>&lt;p&gt;In order to connect to AWS RDS MySQL Using SSL, you must first have the AWS CA Cert locally so that you can validate the cert provided by the MySQL Server.&lt;/p&gt;
 
@@ -381,6 +390,70 @@ Community Packages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;86&lt;span clas
 			</item>
 		
 			<item>
+				<title>ProTip - Am I ready to Commit?</title>
+				<description>&lt;p&gt;I often would want to submit for a PR, and have comments / other things that need to be addressed before this is ready for a PR. While this is named ‘Am I ready to commit?’ I personally am trying to apply as much of the below as possible. In reality the below should be geared more toward making a PR; but i’m hard on myself and want to ensure each commit is meaningful.&lt;/p&gt;
+
+&lt;h2 id=&quot;am-i-ready-to-commit&quot;&gt;Am I ready to commit?&lt;/h2&gt;
+
+&lt;h4 id=&quot;did-i&quot;&gt;Did I?&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Meet all requirements for the Jira task / Issue / Ticket etc.&lt;/li&gt;
+  &lt;li&gt;Ensure no linter errors messages
+    &lt;ul&gt;
+      &lt;li&gt;Linter messages ignored when applicable&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Does &lt;code class=&quot;highlighter-rouge&quot;&gt;kitchen converge&lt;/code&gt; run successfully?&lt;/li&gt;
+  &lt;li&gt;Update README(s) for cookbooks / stacks
+    &lt;ul&gt;
+      &lt;li&gt;Add the new function / capability to README(s)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Spellcheck / Proofread &lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Below is a full list, properly named, ‘Am I ready for a PR?’&lt;/p&gt;
+
+&lt;h2 id=&quot;am-i-ready-for-a-pr&quot;&gt;Am I ready for a PR?&lt;/h2&gt;
+
+&lt;h4 id=&quot;did-i-1&quot;&gt;Did I?&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Meet all requirements for the Jira task / Issue / Ticket etc.&lt;/li&gt;
+  &lt;li&gt;Follow any style guides required&lt;/li&gt;
+  &lt;li&gt;Bump cookbook version(s)
+    &lt;ul&gt;
+      &lt;li&gt;Include new / updated cookbook in env files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bump stacker blueprints version(s)&lt;/li&gt;
+  &lt;li&gt;Bump &lt;strong&gt;__&lt;/strong&gt; version(s)&lt;/li&gt;
+  &lt;li&gt;Update cookbooks/metadata.rb&lt;/li&gt;
+  &lt;li&gt;Update README(s) for cookbooks / stacks
+    &lt;ul&gt;
+      &lt;li&gt;Add the new function / capability to README(s)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Spellcheck / Proofread &lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Update .gitignore for any non essential files&lt;/li&gt;
+  &lt;li&gt;Did you update the CHANGELOG&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;did-you-double-and-triple-check-the-above&quot;&gt;Did you double and triple check the above?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;If so, do it &lt;strong&gt;again&lt;/strong&gt;, chances are you missed something…&lt;strong&gt;&lt;em&gt;mrc0der!&lt;/em&gt;&lt;/strong&gt; lol&lt;/li&gt;
+  &lt;li&gt;Once that is done, you should be ready to submit your PR.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Tue, 04 Apr 2017 08:03:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/04/protip-am-i-ready-to-commit</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/04/protip-am-i-ready-to-commit</guid>
+			</item>
+		
+			<item>
 				<title>ProTip - AWS ElasticSearch 5.1 Deployment</title>
 				<description>&lt;p&gt;When deploying Elasticsearch 5.1 via Cloudformation there are 2 important things to know. Both are Advanced Options for Elasticsearch that are listed as &lt;strong&gt;optional&lt;/strong&gt;, but your CFN stack will FAIL to deploy if they are not set.&lt;/p&gt;
 
@@ -505,43 +578,6 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 				<pubDate>Mon, 20 Mar 2017 14:29:00 -0700</pubDate>
 				<link>http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</guid>
-			</item>
-		
-			<item>
-				<title>Tools - Python Libraries &amp; Scripts</title>
-				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
-
-&lt;h2 id=&quot;libraries&quot;&gt;Libraries&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/execsql&quot;&gt;Execsql&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/cloudtools/awacs&quot;&gt;Awacs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Mon, 20 Mar 2017 13:04:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/03/python-libraries-scripts</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/python-libraries-scripts</guid>
-			</item>
-		
-			<item>
-				<title>Tools - Amazon AWS</title>
-				<description>&lt;h1 id=&quot;aws-cloudformation-tools&quot;&gt;AWS CloudFormation Tools&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Stacker&lt;/li&gt;
-  &lt;li&gt;Troposphere&lt;/li&gt;
-  &lt;li&gt;Terraform&lt;/li&gt;
-  &lt;li&gt;awacs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;image-creation&quot;&gt;Image Creation&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Packer&lt;/li&gt;
-  &lt;li&gt;VMware Fusion&lt;/li&gt;
-  &lt;li&gt;Virturalbox&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Wed, 01 Mar 2017 07:05:00 -0800</pubDate>
-				<link>http://mrc0der.github.io/2017/03/tools-amazon-aws</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/tools-amazon-aws</guid>
 			</item>
 		
 	</channel>
