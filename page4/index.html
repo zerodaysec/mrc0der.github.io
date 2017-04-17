@@ -361,6 +361,270 @@
 </div>
 
   
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
+  <time datetime='2017-03-29'>29 Mar 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page4/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/03/protip-aws-elasticsearch-5-1-deployment">ProTip - AWS ElasticSearch 5.1 Deployment</a>
+  </h1>
+
+
+<div class="entry-content"><p>When deploying Elasticsearch 5.1 via Cloudformation there are 2 important things to know. Both are Advanced Options for Elasticsearch that are listed as <strong>optional</strong>, but your CFN stack will FAIL to deploy if they are not set.</p>
+
+<h6 id="symptoms">Symptoms:</h6>
+<ul>
+  <li>In AWS console it will show stack as <em>CREATE_IN_PROGRESS</em> for ~1hr</li>
+  <li>Stack will rollback with ‘Cluster did not stabilize’</li>
+  <li>Same stack with v2.3 will deploy fine…</li>
+</ul>
+
+<p>Im sure by the time someone else finds this post it will be fixed, but if not, see below.</p>
+
+<h5 id="json-example--">JSON Example -</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"ElasticsearchDomain"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">...YOUR</span><span class="w"> </span><span class="err">CONFIG...</span><span class="w">
+        </span><span class="nt">"AdvancedOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"indices.fielddata.cache.size"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"rest.action.multi.allow_explicit_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h5 id="yaml-example--">Yaml Example -</h5>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ElasticsearchDomain</span><span class="pi">:</span>
+  <span class="s">Type</span><span class="pi">:</span> <span class="s">AWS::Elasticsearch::Domain</span>
+  <span class="s">Properties</span><span class="pi">:</span>
+    <span class="s">...YOUR CONFIG...</span>
+    <span class="s">AdvancedOptions</span><span class="pi">:</span>
+      <span class="s">indices.fielddata.cache.size</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">rest.action.multi.allow_explicit_index</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
+</code></pre>
+</div>
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/aws">aws</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/elasticsearch">elasticsearch</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/cloudformation">cloudformation</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/protip">protip</a></li>
+    
+  </ul>
+</div>
+
+  
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
+  <time datetime='2017-03-21'>21 Mar 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page4/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/03/wordpress-plugins-to-use">Wordpress - Wordpress plugins to use</a>
+  </h1>
+
+
+<div class="entry-content"><p>Normally I would start one of these things off with STOP! DONT USE WORDPRESS!!!<br />
+The fact is, lots do, and lots will continue to do so. Here I will maintain my<br />
+list of essential, must haves, and cool to have plugins, mods, or overall config<br />
+tips. As with anything you find here, I guarantee NOTHING. With all the NSA / DeepSpace9<br />
+0days everything is back-doored / has holes.</p>
+
+<h2 id="plugins">Plugins</h2>
+<ul>
+  <li><a href="https://github.com/wp-sync-db/wp-sync-db">WP Synd DB</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/wordpress">wordpress</a></li>
+    
+  </ul>
+</div>
+
+  
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
+  <time datetime='2017-03-20'>20 Mar 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page4/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/03/wp-cli-examples">Wordpress - wpcli Examples</a>
+  </h1>
+
+
+<div class="entry-content"><div class="language-shell highlighter-rouge"><pre class="highlight"><code>wp plugin install rest-api --activate
+
+wp plugin update --all --allow-root
+
+wp plugin install --allow-root https://github.com/afragen/github-updater/archive/6.2.2.zip --activate
+
+wp plugin install --allow-root https://github.com/wp-sync-db/wp-sync-db/archive/1.5.zip --activate
+</code></pre>
+</div>
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/wordpress">wordpress</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/cli">cli</a></li>
+    
+  </ul>
+</div>
+
+  
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
+  <time datetime='2017-03-20'>20 Mar 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page4/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/03/protip-git-recover-deleted-file">ProTip - Git Recover Deleted File</a>
+  </h1>
+
+
+<div class="entry-content"><h1 id="git-checkout-deleted-file">Git Checkout Deleted File</h1>
+
+<h2 id="look-in-git-log-for-deleted-file">Look in git log for deleted file</h2>
+
+<p>This will require you scrolling through the git history. If you need you can use a GUI tool. But GUIs are for the weak. cli = power</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>commit 254b43ad0ceb039a80737919a5e14504b917bbed
+Author: username &lt;user@emailfqdn.tld&gt;
+Date:   Mon Jan 23 23:34:32 2017 -0800
+
+    site cookbook: style updates; drop legacy site recipe
+
+ delete mode 100644 cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
+</div>
+
+<h2 id="note-the-commit-id">Note the commit id</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>commit 254b43ad0ceb039a80737919a5e14504b917bbed
+</code></pre>
+</div>
+
+<h2 id="create-a-new-temp-branch">Create a new temp branch</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b pulling_restored_file
+</code></pre>
+</div>
+
+<h2 id="checkout-that-branch-and-file">Checkout that branch and file</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout 254b43ad0ceb039a80737919a5e14504b917bbed^ -- cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
+</div>
+
+<h3 id="viola">Viola!</h3>
+
+<p>You should now have the restored file at:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cookbooks/customer_cookbook/recipes/site.rb
+</code></pre>
+</div>
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/protip">protip</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/git">git</a></li>
+    
+  </ul>
+</div>
+
+  
+<div class="post-time">
+  <i class="fa fa-calendar"></i>
+  <time datetime='2017-03-20'>20 Mar 2017</time>
+</div>
+
+  <div class="blog-index">
+    
+    
+    <h1 class="entry-title">
+    <a href="/page4/"></a>
+</h1>
+
+  <h1 class="entry-title">
+    <a href="/2017/03/python-libraries-scripts">Tools - Python Libraries &amp; Scripts</a>
+  </h1>
+
+
+<div class="entry-content"><p>Here I am tracking the different python libraries &amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?</p>
+
+<h2 id="libraries">Libraries</h2>
+<ul>
+  <li><a href="https://pypi.python.org/pypi/execsql">Execsql</a></li>
+  <li><a href="https://github.com/cloudtools/awacs">Awacs</a></li>
+</ul>
+</div>
+
+  </div>
+
+  <div class="post-meta">
+  <ul>
+    
+    <li><a href="http://mrc0der.github.io/tag/python">python</a></li>
+    
+    <li><a href="http://mrc0der.github.io/tag/tools">tools</a></li>
+    
+  </ul>
+</div>
+
+  
 
               </div>
             </div>
