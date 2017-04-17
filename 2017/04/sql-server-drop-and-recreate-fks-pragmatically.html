@@ -107,77 +107,10 @@
 
 <p>All credit goes to the <a href="https://www.mssqltips.com/sqlservertip/3347/drop-and-recreate-all-foreign-key-constraints-in-sql-server/">original author</a> &lt;- blog post here</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sysobjects</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="n">object_id</span><span class="p">(</span><span class="n">N</span><span class="s1">'[dbo].[FK_Details]'</span><span class="p">)</span>
-<span class="k">AND</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">N</span><span class="s1">'IsUserTable'</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">FK_Details</span> <span class="p">(</span>
-  <span class="n">drop_script</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">),</span>
-  <span class="n">create_script</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-<span class="p">);</span>
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/19fb97121ff6f3a0acf64f87bc577112.js"> </script>
 
-<span class="k">DECLARE</span> <span class="o">@</span><span class="k">drop</span>   <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="n">N</span><span class="s1">''</span><span class="p">,</span>
-        <span class="o">@</span><span class="k">create</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="n">N</span><span class="s1">''</span><span class="p">;</span>
-
-<span class="c1">-- drop is easy, just build a simple concatenated list from sys.foreign_keys:</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="k">drop</span> <span class="o">+=</span> <span class="n">N</span><span class="s1">'
-ALTER TABLE '</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="o">+</span> <span class="s1">' DROP CONSTRAINT '</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">fk</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">';'</span>
-<span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">foreign_keys</span> <span class="k">AS</span> <span class="n">fk</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">ct</span>
-  <span class="k">ON</span> <span class="n">fk</span><span class="p">.</span><span class="n">parent_object_id</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">schemas</span> <span class="k">AS</span> <span class="n">cs</span>
-  <span class="k">ON</span> <span class="n">ct</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">cs</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">];</span>
-
-<span class="k">INSERT</span> <span class="n">FK_Details</span><span class="p">(</span><span class="n">drop_script</span><span class="p">)</span> <span class="k">SELECT</span> <span class="o">@</span><span class="k">drop</span><span class="p">;</span>
-
-<span class="c1">-- create is a little more complex. We need to generate the list of</span>
-<span class="c1">-- columns on both sides of the constraint, even though in most cases</span>
-<span class="c1">-- there is only one column.</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="k">create</span> <span class="o">+=</span> <span class="n">N</span><span class="s1">'
-ALTER TABLE '</span>
-   <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-   <span class="o">+</span> <span class="s1">' ADD CONSTRAINT '</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">fk</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-   <span class="o">+</span> <span class="s1">' FOREIGN KEY ('</span> <span class="o">+</span> <span class="n">STUFF</span><span class="p">((</span><span class="k">SELECT</span> <span class="s1">','</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-   <span class="c1">-- get all the columns in the constraint table</span>
-    <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">columns</span> <span class="k">AS</span> <span class="k">c</span>
-    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">foreign_key_columns</span> <span class="k">AS</span> <span class="n">fkc</span>
-    <span class="k">ON</span> <span class="n">fkc</span><span class="p">.</span><span class="n">parent_column_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">column_id</span>
-    <span class="k">AND</span> <span class="n">fkc</span><span class="p">.</span><span class="n">parent_object_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-    <span class="k">WHERE</span> <span class="n">fkc</span><span class="p">.</span><span class="n">constraint_object_id</span> <span class="o">=</span> <span class="n">fk</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">fkc</span><span class="p">.</span><span class="n">constraint_column_id</span>
-    <span class="k">FOR</span> <span class="n">XML</span> <span class="n">PATH</span><span class="p">(</span><span class="n">N</span><span class="s1">''</span><span class="p">),</span> <span class="k">TYPE</span><span class="p">).</span><span class="n">value</span><span class="p">(</span><span class="n">N</span><span class="s1">'.[1]'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'nvarchar(max)'</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">''</span><span class="p">)</span>
-  <span class="o">+</span> <span class="s1">') REFERENCES '</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="n">rt</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-  <span class="o">+</span> <span class="s1">'('</span> <span class="o">+</span> <span class="n">STUFF</span><span class="p">((</span><span class="k">SELECT</span> <span class="s1">','</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-   <span class="c1">-- get all the referenced columns</span>
-    <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">columns</span> <span class="k">AS</span> <span class="k">c</span>
-    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">foreign_key_columns</span> <span class="k">AS</span> <span class="n">fkc</span>
-    <span class="k">ON</span> <span class="n">fkc</span><span class="p">.</span><span class="n">referenced_column_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">column_id</span>
-    <span class="k">AND</span> <span class="n">fkc</span><span class="p">.</span><span class="n">referenced_object_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-    <span class="k">WHERE</span> <span class="n">fkc</span><span class="p">.</span><span class="n">constraint_object_id</span> <span class="o">=</span> <span class="n">fk</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-    <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">fkc</span><span class="p">.</span><span class="n">constraint_column_id</span>
-    <span class="k">FOR</span> <span class="n">XML</span> <span class="n">PATH</span><span class="p">(</span><span class="n">N</span><span class="s1">''</span><span class="p">),</span> <span class="k">TYPE</span><span class="p">).</span><span class="n">value</span><span class="p">(</span><span class="n">N</span><span class="s1">'.[1]'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'nvarchar(max)'</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="s1">');'</span>
-<span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">foreign_keys</span> <span class="k">AS</span> <span class="n">fk</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">rt</span> <span class="c1">-- referenced table</span>
-  <span class="k">ON</span> <span class="n">fk</span><span class="p">.</span><span class="n">referenced_object_id</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">schemas</span> <span class="k">AS</span> <span class="n">rs</span>
-  <span class="k">ON</span> <span class="n">rt</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">ct</span> <span class="c1">-- constraint table</span>
-  <span class="k">ON</span> <span class="n">fk</span><span class="p">.</span><span class="n">parent_object_id</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.[</span><span class="n">object_id</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">schemas</span> <span class="k">AS</span> <span class="n">cs</span>
-  <span class="k">ON</span> <span class="n">ct</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">cs</span><span class="p">.[</span><span class="n">schema_id</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="n">rt</span><span class="p">.</span><span class="n">is_ms_shipped</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">ct</span><span class="p">.</span><span class="n">is_ms_shipped</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="k">UPDATE</span> <span class="n">FK_Details</span> <span class="k">SET</span> <span class="n">create_script</span> <span class="o">=</span> <span class="o">@</span><span class="k">create</span><span class="p">;</span>
-
-<span class="n">PRINT</span> <span class="o">@</span><span class="k">drop</span><span class="p">;</span>
-<span class="n">PRINT</span> <span class="o">@</span><span class="k">create</span><span class="p">;</span>
-
-<span class="cm">/*
-EXEC sp_executesql @drop
--- clear out data etc. here
-EXEC sp_executesql @create;
-*/</span>
-</code></pre>
-</div>
 
                     
 
