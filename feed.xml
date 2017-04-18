@@ -68,19 +68,29 @@
 
 &lt;h4 id=&quot;python&quot;&gt;Python&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;pep8&lt;/li&gt;
-  &lt;li&gt;pylint&lt;/li&gt;
+  &lt;li&gt;linter-python-pep8&lt;/li&gt;
+  &lt;li&gt;linter-pylint&lt;/li&gt;
+  &lt;li&gt;linter-pycodestyle&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;ruby&quot;&gt;Ruby&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;rubocop&lt;/li&gt;
+  &lt;li&gt;linter-rubocop&lt;/li&gt;
+  &lt;li&gt;linter-ruby&lt;/li&gt;
+  &lt;li&gt;linter-erb&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;chef&quot;&gt;Chef&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;foodcriic&lt;/li&gt;
-  &lt;li&gt;cookstyle&lt;/li&gt;
+  &lt;li&gt;linter-foodcriic&lt;/li&gt;
+  &lt;li&gt;linter-cookstyle&lt;/li&gt;
+  &lt;li&gt;language-chef&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;terraform&quot;&gt;Terraform&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;linter-terraform-syntax&lt;/li&gt;
+  &lt;li&gt;language-terraform&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;atom-plugins&quot;&gt;Atom Plugins&lt;/h4&gt;
@@ -174,28 +184,16 @@
 
 &lt;h5 id=&quot;json-example--&quot;&gt;JSON Example -&lt;/h5&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ElasticsearchDomain&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Properties&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...YOUR&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;CONFIG...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;AdvancedOptions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;indices.fielddata.cache.size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-             &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;rest.action.multi.allow_explicit_index&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/9799b658d43cd2342d4a8c61e1fcc9dd.js&quot;&gt; &lt;/script&gt;
 
 &lt;h5 id=&quot;yaml-example--&quot;&gt;Yaml Example -&lt;/h5&gt;
 
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;ElasticsearchDomain&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;AWS::Elasticsearch::Domain&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;...YOUR CONFIG...&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;AdvancedOptions&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;indices.fielddata.cache.size&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;rest.action.multi.allow_explicit_index&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;true'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/0ddef1447766fc6d1873a1c799b390cb.js&quot;&gt; &lt;/script&gt;
+
 </description>
 				<pubDate>Wed, 29 Mar 2017 13:17:00 -0700</pubDate>
 				<link>http://mrc0der.github.io/2017/03/protip-aws-elasticsearch-5-1-deployment</link>
