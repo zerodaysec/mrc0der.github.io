@@ -7,6 +7,15 @@
 		<atom:link href="http://mrc0der.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Chef Cookbook Dependencies</title>
+				<description>&lt;p&gt;Adding &lt;code class=&quot;highlighter-rouge&quot;&gt;solver :ruby, :required&lt;/code&gt; to your berksfile will help with dependency resolutions&lt;/p&gt;
+</description>
+				<pubDate>Tue, 08 Aug 2017 14:44:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/08/chef-cookbook-dependencies</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/08/chef-cookbook-dependencies</guid>
+			</item>
+		
+			<item>
 				<title>AWS RDS MySQL SSL Connection</title>
 				<description>&lt;p&gt;In order to connect to AWS RDS MySQL Using SSL, you must first have the AWS CA Cert locally so that you can validate the cert provided by the MySQL Server.&lt;/p&gt;
 
@@ -282,21 +291,6 @@ Date:   Mon Jan 23 23:34:32 2017 -0800
 				<pubDate>Mon, 20 Mar 2017 14:29:00 -0700</pubDate>
 				<link>http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</link>
 				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/protip-git-recover-deleted-file</guid>
-			</item>
-		
-			<item>
-				<title>Tools - Python Libraries &amp; Scripts</title>
-				<description>&lt;p&gt;Here I am tracking the different python libraries &amp;amp; scripts I use. Also gives me a place to point others who ask, what do you use to do that?!?&lt;/p&gt;
-
-&lt;h2 id=&quot;libraries&quot;&gt;Libraries&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/execsql&quot;&gt;Execsql&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/cloudtools/awacs&quot;&gt;Awacs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Mon, 20 Mar 2017 13:04:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/03/python-libraries-scripts</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/03/python-libraries-scripts</guid>
 			</item>
 		
 	</channel>
