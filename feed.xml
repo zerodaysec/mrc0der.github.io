@@ -10,9 +10,9 @@
 				<title>Chef Cookbook Dependencies</title>
 				<description>&lt;p&gt;Adding &lt;code class=&quot;highlighter-rouge&quot;&gt;solver :ruby, :required&lt;/code&gt; to your berksfile will help with dependency resolutions&lt;/p&gt;
 </description>
-				<pubDate>Tue, 08 Aug 2017 14:44:00 -0700</pubDate>
-				<link>http://mrc0der.github.io/2017/08/chef-cookbook-dependencies</link>
-				<guid isPermaLink="true">http://mrc0der.github.io/2017/08/chef-cookbook-dependencies</guid>
+				<pubDate>Thu, 01 Jun 2017 14:44:00 -0700</pubDate>
+				<link>http://mrc0der.github.io/2017/06/chef-cookbook-dependencies</link>
+				<guid isPermaLink="true">http://mrc0der.github.io/2017/06/chef-cookbook-dependencies</guid>
 			</item>
 		
 			<item>
