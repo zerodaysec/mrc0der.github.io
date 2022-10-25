@@ -6,4 +6,4 @@ build:
 deploy:
 	bash bin/deploy
 
-full-build: build deploy 
+full-build: build deploy
